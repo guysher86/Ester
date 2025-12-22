@@ -1,20 +1,16 @@
 (() => {
   const PHONE = (window.__WHATSAPP_PHONE__ || "").trim();
-
   const $ = (id) => document.getElementById(id);
 
+  // Mobile nav
   const navToggle = $("navToggle");
   const mobileNav = $("mobileNav");
-  const fab = $("fab");
-
   if (navToggle && mobileNav){
     navToggle.addEventListener("click", () => {
       const isOpen = mobileNav.classList.toggle("isOpen");
       navToggle.setAttribute("aria-expanded", String(isOpen));
       mobileNav.setAttribute("aria-hidden", String(!isOpen));
     });
-
-    // Close mobile nav on click
     mobileNav.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
         mobileNav.classList.remove("isOpen");
@@ -24,25 +20,43 @@
     });
   }
 
-  // Floating button scrolls to form section (so user fills details)
-  if (fab){
-    fab.addEventListener("click", () => {
+  // Reveal on scroll (subtle, Apple-like)
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!prefersReduced){
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries){
+        if (e.isIntersecting){
+          e.target.classList.add("in-view");
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    els.forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("in-view"));
+  }
+
+  // Floating button scroll to contact
+  const waFab = $("waFab");
+  if (waFab){
+    waFab.addEventListener("click", () => {
       const el = document.querySelector("#contact");
       if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
-      setTimeout(() => {
-        const first = $("firstName");
-        if (first) first.focus();
-      }, 350);
+      setTimeout(() => $("firstName")?.focus(), 350);
     });
   }
 
-  // WhatsApp form submit
-  const form = $("whatsForm");
-  const errorText = $("errorText");
+  // Footer year
   const year = $("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
+  // WhatsApp form
+  const form = $("whatsForm");
+  const errorText = $("errorText");
+
   const clean = (s) => (s || "").toString().trim().replace(/\s+/g, " ");
+  const setError = (msg) => { if (errorText) errorText.textContent = msg || ""; };
 
   const buildMessage = (firstName, lastName, childName) => {
     return [
@@ -54,17 +68,9 @@
   };
 
   const openWhatsApp = (text) => {
-    if (!PHONE){
-      throw new Error("חסר מספר יעד ל‑WhatsApp.");
-    }
-    const encoded = encodeURIComponent(text);
-    const url = `https://wa.me/${PHONE}?text=${encoded}`;
+    if (!PHONE) throw new Error("חסר מספר יעד ל‑WhatsApp.");
+    const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
-  };
-
-  const setError = (msg) => {
-    if (!errorText) return;
-    errorText.textContent = msg || "";
   };
 
   if (form){
@@ -82,8 +88,7 @@
       }
 
       try{
-        const msg = buildMessage(firstName, lastName, childName);
-        openWhatsApp(msg);
+        openWhatsApp(buildMessage(firstName, lastName, childName));
       } catch (err){
         setError(err?.message || "אירעה שגיאה. נסו שוב.");
       }

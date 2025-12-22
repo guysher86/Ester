@@ -4,313 +4,308 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>מתמטיקה בביטחון | שיעורים פרטיים במתמטיקה א–ט בחיפה</title>
-  <meta name="description" content="שיעורים פרטיים במתמטיקה לכיתות א–ט בחיפה (מרכז הכרמל). 13 שנות ניסיון, הוראה מותאמת ותהליך שמחזיר ביטחון והבנה. יצירת קשר ב-WhatsApp." />
-  <meta name="theme-color" content="#0B1F3A" />
+  <meta name="description" content="שיעורים פרטיים במתמטיקה לכיתות א–ט בחיפה (מרכז הכרמל). 13 שנות ניסיון, הוראה מותאמת, תהליך שמחזיר ביטחון והבנה. תיאום ב-WhatsApp." />
+  <meta name="theme-color" content="#0A0A0B" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <a class="skip" href="#contact">דלגי לתיאום</a>
 
-  <!-- Top bar -->
   <header class="topbar" role="banner">
-    <div class="container topbar__inner">
-      <div class="brand" aria-label="שם המותג">
-        <span class="brand__mark" aria-hidden="true">∑</span>
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#top" aria-label="מתמטיקה בביטחון">
+        <span class="brand__dot" aria-hidden="true"></span>
         <span class="brand__name">מתמטיקה בביטחון</span>
-      </div>
+      </a>
 
-      <nav class="nav" aria-label="ניווט">
+      <nav class="nav" aria-label="ניווט ראשי">
         <a href="#why">למי זה מתאים</a>
-        <a href="#how">איך זה עובד</a>
+        <a href="#method">איך זה עובד</a>
         <a href="#about">קצת עליי</a>
-        <a href="#faq">שאלות נפוצות</a>
-        <a class="nav__cta" href="#contact">לתיאום ב-WhatsApp</a>
+        <a href="#faq">שאלות</a>
+        <a class="nav__cta" href="#contact">לתיאום ב‑WhatsApp</a>
       </nav>
 
       <button class="navToggle" id="navToggle" aria-label="פתח/סגור תפריט" aria-expanded="false">
-        ☰
+        <span aria-hidden="true">☰</span>
       </button>
     </div>
 
     <div class="mobileNav" id="mobileNav" aria-hidden="true">
       <a href="#why">למי זה מתאים</a>
-      <a href="#how">איך זה עובד</a>
+      <a href="#method">איך זה עובד</a>
       <a href="#about">קצת עליי</a>
-      <a href="#faq">שאלות נפוצות</a>
-      <a class="mobileNav__cta" href="#contact">לתיאום ב-WhatsApp</a>
+      <a href="#faq">שאלות</a>
+      <a class="mobileNav__cta" href="#contact">לתיאום ב‑WhatsApp</a>
     </div>
   </header>
 
-  <!-- Floating WhatsApp (scroll to form) -->
-  <button class="fab" id="fab" aria-label="לתיאום ב-WhatsApp">
-    <span aria-hidden="true">WhatsApp</span>
+  <button class="wa-fab" id="waFab" aria-label="לתיאום ב‑WhatsApp">
+    <span class="wa-fab__icon" aria-hidden="true">WA</span>
+    <span class="wa-fab__text">לתיאום</span>
   </button>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" id="top">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <p class="eyebrow">שיעורים פרטיים במתמטיקה לכיתות א–ט • חיפה • מרכז הכרמל</p>
-          <h1>מתמטיקה בביטחון</h1>
-          <p class="lead">
-            כשהילד מתוסכל, לא מבין, או “כבר לא אוהב מתמטיקה” — אפשר להחזיר ביטחון והבנה.
-            אני מלווה תלמידים בתהליך ברור ומותאם שמצמצם פערים ובונה רצף שמחזיק לאורך זמן.
-          </p>
-
-          <ul class="bullets" aria-label="יתרונות מרכזיים">
-            <li><strong>13 שנות ניסיון</strong> בהוראת מתמטיקה ביסודי ובחטיבת הביניים</li>
-            <li><strong>הוראה מותאמת</strong> במתמטיקה ליסודי</li>
-            <li><strong>משחקולוגיה חינוכית</strong> בתוך מסגרת מקצועית (לא חוג משחקים)</li>
-          </ul>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#contact">לתיאום שיעור ב-WhatsApp</a>
-            <a class="btn btn--ghost" href="#about">מי אני</a>
-          </div>
-
-          <p class="note">
-            התיאום והפרטים מתבצעים ב-WhatsApp בלבד. האתר לא מציג מחיר וזמינות — כדי להתאים לכל ילד באופן אישי.
-          </p>
-        </div>
-
-        <div class="hero__card" aria-label="כרטיס אמון">
-          <div class="card">
-            <h2 class="card__title">למה הורים פונים אליי</h2>
-            <div class="card__items">
-              <div class="card__item">
-                <div class="pill">תסכול</div>
-                <p>הילד “נתקע”, מאבד ביטחון ומפסיק לנסות.</p>
-              </div>
-              <div class="card__item">
-                <div class="pill">פערים</div>
-                <p>חוסר בסיס במיומנויות גורר קושי בחומר מתקדם.</p>
-              </div>
-              <div class="card__item">
-                <div class="pill">מבחנים</div>
-                <p>לחץ, טעויות “שטותיות” וחוסר סדר בפתרון.</p>
-              </div>
-              <div class="card__item">
-                <div class="pill">שיעורי בית</div>
-                <p>מאבקים בבית וחוסר רצון לגשת לתרגול.</p>
-              </div>
-            </div>
-            <div class="card__footer">
-              <a class="link" href="#contact">בואו נתחיל בשיחה קצרה ב‑WhatsApp →</a>
-            </div>
-          </div>
-        </div>
+  <main id="top">
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="orb orb--a"></div>
+        <div class="orb orb--b"></div>
+        <div class="gridGlow"></div>
       </div>
-    </section>
 
-    <!-- Why -->
-    <section class="section" id="why">
-      <div class="container">
-        <h2>למי זה מתאים</h2>
-        <p class="section__lead">
-          לתלמידים בכיתות א–ט והורים שמחפשים תהליך מקצועי, ברור ומותאם — שמחזיר לילד תחושת “אני יכול/ה”.
+      <div class="wrap hero__content">
+        <p class="kicker reveal">שיעורים פרטיים במתמטיקה לכיתות א–ט • חיפה • מרכז הכרמל</p>
+
+        <h1 class="headline reveal">
+          מתמטיקה בביטחון
+          <span class="headline__sub">תהליך ברור שמחזיר הבנה, סדר וביטחון</span>
+        </h1>
+
+        <p class="lead reveal">
+          כשילד מתוסכל, נתקע או “לא אוהב מתמטיקה” — זה לא אומר שאין לו יכולת.
+          ברוב המקרים צריך התאמה, בסיס, והצלחות קטנות שחוזרות על עצמן עד שהביטחון חוזר.
         </p>
 
-        <div class="grid3">
-          <div class="feature">
-            <h3>קושי בהבנה</h3>
-            <p>כשאין בסיס יציב, כל נושא חדש מרגיש “שפה זרה”.</p>
+        <div class="hero__stats reveal" role="list" aria-label="נקודות אמון">
+          <div class="stat" role="listitem">
+            <div class="stat__num">13</div>
+            <div class="stat__label">שנות ניסיון בהוראת מתמטיקה<br>ביסודי ובחטיבת הביניים</div>
           </div>
-          <div class="feature">
-            <h3>פערים מצטברים</h3>
-            <p>סוגרים את הפערים צעד-צעד ואז בונים שגרה שמחזיקה.</p>
+          <div class="stat" role="listitem">
+            <div class="stat__num">M.Ed</div>
+            <div class="stat__label">תואר שני בהוראת המתמטיקה<br>לעל‑יסודי</div>
           </div>
-          <div class="feature">
-            <h3>חוסר ביטחון</h3>
-            <p>מייצרים הצלחות קטנות שמתחברות לשיפור גדול.</p>
+          <div class="stat" role="listitem">
+            <div class="stat__num">מותאם</div>
+            <div class="stat__label">הוראה מותאמת ליסודי<br> + משחקולוגיה חינוכית</div>
           </div>
         </div>
 
-        <div class="callout">
-          <p><strong>איפה מתקיימים השיעורים?</strong> אצלי בבית, מרכז הכרמל (כתובת מדויקת לאחר תיאום).</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#contact">לתיאום ב‑WhatsApp</a>
+          <a class="btn btn--glass" href="#method">איך זה עובד</a>
+        </div>
+
+        <p class="tiny reveal">
+          אין מחיר/זמינות באתר — נתאים בשיחה קצרה ב‑WhatsApp לפי הילד/ה והצורך.
+          <span class="dotSep" aria-hidden="true">•</span>
+          הפרטים אינם נשמרים באתר.
+        </p>
+      </div>
+
+      <div class="scrollCue" aria-hidden="true">
+        <div class="scrollCue__pill">גלילה</div>
+        <div class="scrollCue__line"></div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="title reveal">למי זה מתאים</h2>
+          <p class="sub reveal">
+            לתלמידים בכיתות א–ט ולהורים שרוצים ליווי מקצועי, רגוע ומדויק — בלי דרמה ובלי “מאבקי שיעורי בית”.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <h3>קושי בהבנה</h3>
+            <p>כשאין בסיס יציב, כל נושא חדש מרגיש “שפה זרה”. בונים יסודות — ואז מתקדמים.</p>
+          </article>
+          <article class="card reveal">
+            <h3>פערים מצטברים</h3>
+            <p>סוגרים פערים צעד‑צעד ומפתחים שיטה לפתרון, כך שהילד יודע מה לעשות לבד.</p>
+          </article>
+          <article class="card reveal">
+            <h3>מבחנים ושיעורי בית</h3>
+            <p>מארגנים חשיבה, מצמצמים טעויות, ומחזקים ביטחון — עם תרגול קצר שמחזיק.</p>
+          </article>
+        </div>
+
+        <div class="pillNote reveal" role="note">
+          <span class="pillNote__dot" aria-hidden="true"></span>
+          <p><strong>מיקום:</strong> השיעורים מתקיימים אצלי בבית במרכז הכרמל (כתובת מדויקת לאחר תיאום).</p>
         </div>
       </div>
     </section>
 
-    <!-- How -->
-    <section class="section section--alt" id="how">
-      <div class="container">
-        <h2>איך זה עובד</h2>
-        <p class="section__lead">תהליך קצר, ברור ומדויק — בלי להעמיס על הילד ובלי “לשרוף זמן”.</p>
+    <section class="section section--alt" id="method">
+      <div class="wrap method">
+        <div class="method__sticky">
+          <h2 class="title reveal">איך זה עובד</h2>
+          <p class="sub reveal">
+            תהליך קצר וברור. בלי “אבחון” רשמי — כן מיפוי נקודתי והתקדמות מדורגת.
+          </p>
+          <div class="method__cta reveal">
+            <a class="btn btn--primary" href="#contact">לתיאום ב‑WhatsApp</a>
+          </div>
+        </div>
 
-        <ol class="steps" aria-label="שלבי עבודה">
-          <li class="step">
-            <span class="step__num">1</span>
+        <div class="method__steps" aria-label="שלבים">
+          <div class="step reveal">
+            <div class="step__num">1</div>
             <div class="step__body">
-              <h3>שיעור ראשון: היכרות ומיפוי נקודתי</h3>
-              <p>בלי “אבחון” רשמי — כן זיהוי נקודת השבירה ומיומנויות המפתח שצריך לחזק.</p>
+              <h3>היכרות ומיפוי נקודתי</h3>
+              <p>מזהים את “נקודת השבירה” ואת מיומנויות המפתח שחסרות כרגע.</p>
             </div>
-          </li>
-          <li class="step">
-            <span class="step__num">2</span>
+          </div>
+
+          <div class="step reveal">
+            <div class="step__num">2</div>
             <div class="step__body">
               <h3>הוראה מותאמת + תרגול מדורג</h3>
-              <p>מסדרים את ההבנה, עובדים בשכבות, ובונים שיטה לפתרון עם סדר ודיוק.</p>
+              <p>מסדרים הבנה, עובדים בשכבות, ובונים דרך פתרון עם סדר ודיוק.</p>
             </div>
-          </li>
-          <li class="step">
-            <span class="step__num">3</span>
+          </div>
+
+          <div class="step reveal">
+            <div class="step__num">3</div>
             <div class="step__body">
-              <h3>רצף שמחזיק לאורך זמן</h3>
-              <p>משימה קצרה לבית (כ-10 דקות) והתקדמות עקבית שמייצרת ביטחון.</p>
+              <h3>רצף שמחזיק</h3>
+              <p>משימה קצרה לבית (כ‑10 דקות) ושגרה שמחברת הצלחות לביטחון אמיתי.</p>
             </div>
-          </li>
-        </ol>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- About -->
     <section class="section" id="about">
-      <div class="container about">
-        <div class="about__text">
-          <h2>קצת עליי</h2>
-          <p>
+      <div class="wrap about">
+        <div class="about__copy">
+          <h2 class="title reveal">קצת עליי</h2>
+
+          <p class="reveal">
             אני מורה למתמטיקה כבר <strong>13 שנה</strong>. במשך <strong>11 שנים</strong> עבדתי כמחנכת ומורה למתמטיקה ביסודי,
             ועוד <strong>שנתיים</strong> לימדתי בחטיבת הביניים.
           </p>
-          <p>
+          <p class="reveal">
             יש לי <strong>תואר שני בהוראת המתמטיקה לעל‑יסודי</strong>, הכשרה ב<strong>משחקולוגיה חינוכית</strong>,
             ותעודת <strong>הוראה מותאמת במתמטיקה ליסודי</strong>.
           </p>
-          <p>
-            אני משלבת כלים חווייתיים בתוך מסגרת מקצועית — כדי שהילד יבין באמת, יצליח, ויחזור להאמין בעצמו.
+          <p class="reveal">
+            הגישה שלי משלבת מקצועיות גבוהה עם חוויה חיובית ושפה ברורה — כדי שהילד יבין באמת, יצליח, ויחזור להאמין בעצמו.
           </p>
 
-          <div class="chips" aria-label="נקודות סמכות">
-            <span class="chip">13 שנות ניסיון</span>
-            <span class="chip">11 שנים יסודי</span>
-            <span class="chip">2 שנים חטיבת ביניים</span>
-            <span class="chip">תואר שני</span>
-            <span class="chip">הוראה מותאמת</span>
+          <div class="badges reveal" aria-label="סיכום מקצועי">
+            <span class="badge">13 שנות ניסיון</span>
+            <span class="badge">מחנכת 11 שנים (יסודי)</span>
+            <span class="badge">2 שנים חטיבת ביניים</span>
+            <span class="badge">M.Ed מתמטיקה</span>
+            <span class="badge">הוראה מותאמת</span>
           </div>
         </div>
 
-        <div class="about__panel" aria-label="הדגשים">
+        <aside class="about__panel reveal" aria-label="מסר להורים">
           <div class="panel">
             <h3>מה חשוב לי בשיעור</h3>
             <ul>
-              <li>בהירות: מה עושים ולמה.</li>
+              <li>בהירות: הילד יודע מה עושים ולמה.</li>
               <li>דיוק: בונים בסיס לפני שמתקדמים.</li>
               <li>ביטחון: הצלחות קטנות שמתחברות.</li>
-              <li>שיתוף פעולה: הילד מרגיש מסוגלות.</li>
+              <li>רוגע: פחות מאבק בבית, יותר מסוגלות.</li>
             </ul>
-            <p class="panel__note">כל התיאום נעשה ב‑WhatsApp — כדי להתאים אישית לכל ילד/ה.</p>
-            <a class="btn btn--primary btn--full" href="#contact">לתיאום ב-WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- FAQ -->
-    <section class="section section--alt" id="faq">
-      <div class="container">
-        <h2>שאלות נפוצות</h2>
+            <div class="panel__hr"></div>
 
-        <div class="faq">
-          <details>
-            <summary>למי זה מתאים?</summary>
-            <p>לכיתות א–ט: חיזוק בסיס, צמצום פערים, ביטחון, עבודה על מבחנים ושיעורי בית — בהתאם לצורך.</p>
-          </details>
-
-          <details>
-            <summary>איפה מתקיימים השיעורים?</summary>
-            <p>אצלי בבית במרכז הכרמל. כתובת מדויקת נשלחת לאחר תיאום.</p>
-          </details>
-
-          <details>
-            <summary>מה להביא לשיעור?</summary>
-            <p>מחברת/ספר/מבחן אחרון אם יש. אם אין — זה בסדר, נבנה בסיס מהנקודה שבה הילד נמצא.</p>
-          </details>
-
-          <details>
-            <summary>איך מתבצע התיאום?</summary>
-            <p>ב‑WhatsApp בלבד. ממלאים פרטים קצרים כאן באתר וזה פותח איתי שיחה חדשה ב‑WhatsApp.</p>
-          </details>
-
-          <details>
-            <summary>האם הפרטים נשמרים באתר?</summary>
-            <p>לא. הפרטים נשלחים אליי ישירות ב‑WhatsApp ואינם נשמרים באתר.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contactCard">
-          <div class="contactCard__left">
-            <h2>לתיאום שיעור — שלחו הודעה ב‑WhatsApp</h2>
-            <p class="section__lead">
-              מלאו את שלושת השדות ובלחיצה אחת תיפתח שיחה חדשה ב‑WhatsApp עם הפרטים.
+            <p class="panel__small">
+              התיאום מתבצע ב‑WhatsApp בלבד.
+              האתר לא שומר פרטים — השדות למטה רק פותחים שיחה חדשה עם הפרטים שהוזנו.
             </p>
 
-            <form class="form" id="whatsForm" novalidate>
-              <div class="form__row">
-                <label for="firstName">שם פרטי <span class="req">*</span></label>
-                <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
-              </div>
+            <a class="btn btn--primary btn--full" href="#contact">לתיאום ב‑WhatsApp</a>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-              <div class="form__row">
-                <label for="lastName">שם משפחה <span class="req">*</span></label>
-                <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
-              </div>
+    <section class="section section--alt" id="faq">
+      <div class="wrap">
+        <h2 class="title reveal">שאלות נפוצות</h2>
+        <div class="faq">
+          <details class="reveal">
+            <summary>למי זה מתאים?</summary>
+            <p>לכיתות א–ט: חיזוק בסיס, צמצום פערים, ביטחון, תרגול למבחנים ושיעורי בית — לפי צורך.</p>
+          </details>
 
-              <div class="form__row">
-                <label for="childName">שם הילד/ה <span class="req">*</span></label>
-                <input id="childName" name="childName" type="text" required />
-              </div>
+          <details class="reveal">
+            <summary>איפה מתקיימים השיעורים?</summary>
+            <p>אצלי בבית במרכז הכרמל. כתובת מדויקת נשלחת לאחר תיאום ב‑WhatsApp.</p>
+          </details>
 
-              <p class="error" id="errorText" role="alert" aria-live="polite"></p>
+          <details class="reveal">
+            <summary>מה להביא?</summary>
+            <p>מחברת/ספר/מבחן אחרון אם יש. אם אין — זה בסדר, נתחיל מהנקודה שבה הילד נמצא.</p>
+          </details>
 
-              <button class="btn btn--primary btn--full" id="whatsAppBtn" type="submit">
-                שליחה ב‑WhatsApp
-              </button>
+          <details class="reveal">
+            <summary>האם הפרטים נשמרים באתר?</summary>
+            <p>לא. בלחיצה על הכפתור נפתחת שיחת WhatsApp חדשה, והפרטים אינם נשמרים באתר.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-              <p class="privacy">
-                הפרטים נשלחים אליי ישירות ב‑WhatsApp ואינם נשמרים באתר.
-              </p>
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div class="contact__copy">
+            <h2 class="title reveal">לתיאום — הודעת WhatsApp עם 3 פרטים</h2>
+            <p class="sub reveal">
+              ממלאים שם פרטי, שם משפחה ושם הילד/ה. בלחיצה אחת תיפתח שיחה חדשה ב‑WhatsApp עם ההודעה.
+            </p>
 
-              <p class="micro">
-                מספר יעד: <span dir="ltr">972546969509</span>
-              </p>
-            </form>
+            <div class="contact__note reveal" role="note">
+              <span class="contact__spark" aria-hidden="true"></span>
+              <p><strong>אין מחיר/זמינות באתר.</strong> כל ההתאמה נעשית בשיחה כדי לדייק לצורך של הילד/ה.</p>
+            </div>
           </div>
 
-          <aside class="contactCard__right" aria-label="תזכורת מדיניות">
-            <div class="policy">
-              <h3>כדאי לדעת</h3>
-              <ul>
-                <li>הפרטים באתר אינם כוללים מחיר וזמינות — נתאים בשיחה לפי הצורך.</li>
-                <li>כתובת מדויקת נשלחת לאחר תיאום.</li>
-              </ul>
-              <div class="policy__divider"></div>
-              <p class="policy__small">
-                אם כפתור WhatsApp לא נפתח (לעיתים בדפדפן מחשב), נסו מהמובייל או ודאו שיש WhatsApp מותקן/WhatsApp Web מחובר.
-              </p>
-            </div>
-          </aside>
+          <form class="form reveal" id="whatsForm" novalidate>
+            <label class="field">
+              <span>שם פרטי <span class="req">*</span></span>
+              <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+            </label>
+
+            <label class="field">
+              <span>שם משפחה <span class="req">*</span></span>
+              <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+            </label>
+
+            <label class="field">
+              <span>שם הילד/ה <span class="req">*</span></span>
+              <input id="childName" name="childName" type="text" required />
+            </label>
+
+            <p class="error" id="errorText" role="alert" aria-live="polite"></p>
+
+            <button class="btn btn--primary btn--full" id="whatsAppBtn" type="submit">
+              שליחה ב‑WhatsApp
+            </button>
+
+            <p class="tiny">
+              הפרטים נשלחים ישירות ב‑WhatsApp ואינם נשמרים באתר.
+              <span class="dotSep" aria-hidden="true">•</span>
+              יעד: <span dir="ltr">972546969509</span>
+            </p>
+          </form>
         </div>
 
         <footer class="footer">
           <p>© <span id="year"></span> מתמטיקה בביטחון • חיפה</p>
-          <p class="footer__small">האתר אינו אוסף או שומר פרטי משתמשים. ההתקשרות נעשית ב‑WhatsApp בלבד.</p>
+          <p class="footer__small">האתר אינו אוסף/שומר מידע. ההתקשרות נעשית ב‑WhatsApp בלבד.</p>
         </footer>
       </div>
     </section>
   </main>
 
   <script>
-    // Config
     window.__WHATSAPP_PHONE__ = "972546969509";
   </script>
   <script src="script.js"></script>
