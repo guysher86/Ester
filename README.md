@@ -1,12 +1,13 @@
-# מתמטיקה בביטחון — Premium Light Scroll (GitHub Pages)
+# מתמטיקה בביטחון — Apple-like Light v3
 
-גרסה בהירה, יוקרתית ונגישה (RTL) עם אנימציות עדינות בסגנון Apple.
-- בלי מחיר/זמינות באתר
-- בלי שמירת מידע (נפתח WhatsApp בלבד)
-- תמיכה ב-prefers-reduced-motion
+גרסה בהירה מאוד (לבן + #F5F5F7), עם קונטרסט נכון, ללא “בלוקים שחורים”.
+עדיין:
+- ללא מחיר/זמינות באתר
+- ללא שמירת מידע (WhatsApp בלבד)
+- 3 שדות -> פתיחת שיחה ל-972546969509
 
-WhatsApp יעד: 972546969509
-
-עדכון לריפו:
-להחליף את index.html + styles.css + script.js + .nojekyll
-ולבצע Commit+Push.
+קבצים:
+- index.html
+- styles.css
+- script.js
+- .nojekyll
