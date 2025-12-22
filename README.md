@@ -1,8 +1,9 @@
-# מתמטיקה בביטחון — Apple Minimal v5
+# מתמטיקה בביטחון — Apple Minimal v6 (Lead Funnel)
 
-מטרה: קצר, קולע, בטוב טעם.
-- אין מחיר באתר
-- בלי שמירת נתונים
-- 3 שדות -> פתיחת WhatsApp ל-972546969509
+עדכון לפי הבקשה:
+- הוסר כל אזכור למחיר/זמינות (לא מופיע בכלל באתר)
+- האתר מתפקד כמשפך לידים: קצר, נקי, CTA ל-WhatsApp
+- בעתיד אפשר להוסיף דפים נוספים (about.html, articles/, וכו׳)
 
-עדכון לריפו: החלפת index.html + styles.css + script.js + .nojekyll ו-Commit+Push.
+עדכון לריפו:
+להחליף index.html + styles.css + script.js + .nojekyll ולבצע Commit+Push.

@@ -47,7 +47,8 @@
   }
 
   // Year
-  $("year")?.append(String(new Date().getFullYear()));
+  const yearEl = $("year");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   // WhatsApp form
   const form = $("whatsForm");
