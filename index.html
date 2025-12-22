@@ -1,377 +1,341 @@
-/* One-pager (RTL) – minimal, bright, Apple-ish */
-:root{
-  --bg: #ffffff;
-  --text: #0b0f14;
-  --muted: #5a6674;
-  --line: rgba(11,15,20,.10);
-  --soft: rgba(11,15,20,.03);
-  --shadow: 0 16px 40px rgba(11,15,20,.10);
-  --r: 24px;
-  --r2: 16px;
-  --max: 760px;
-}
-
-*{ box-sizing: border-box; }
-html,body{ height: 100%; }
-body{
-  margin: 0;
-  font-family: "Heebo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.45;
-}
-
-a{ color: inherit; }
-.container{
-  width: min(var(--max), calc(100% - 40px));
-  margin-inline: auto;
-}
-
-.skip{
-  position: absolute;
-  inset-inline-start: 12px;
-  top: 12px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: var(--text);
-  color: #fff;
-  transform: translateY(-160%);
-  transition: transform .2s ease;
-  z-index: 50;
-}
-.skip:focus{ transform: translateY(0); }
-
-.hero{
-  padding: 56px 0 34px;
-  border-bottom: 1px solid var(--line);
-}
-
-.topline{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
-.pill{
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .04em;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(11,15,20,.06);
-  border: 1px solid var(--line);
-}
-.topline-muted{ color: var(--muted); font-size: 13px; }
-.topline-sep{ color: var(--muted); }
-
-.h1{
-  margin: 0;
-  font-size: clamp(30px, 4.2vw, 48px);
-  letter-spacing: -0.02em;
-}
-.h2{
-  margin: 0 0 14px;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-}
-.lede{
-  margin: 14px 0 0;
-  font-size: 18px;
-  color: var(--muted);
-  max-width: 58ch;
-}
-.lede.small{ font-size: 15px; margin-top: 8px; }
-
-.trust{
-  margin-top: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  color: var(--muted);
-  font-size: 13px;
-}
-.trust-dot{ opacity: .7; }
-
-.cta{
-  margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.btn{
-  border: 0;
-  border-radius: 999px;
-  padding: 14px 16px;
-  font-weight: 800;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: transform .06s ease, opacity .2s ease, box-shadow .25s ease;
-}
-.btn:active{ transform: translateY(1px); }
-.btn-primary{
-  background: var(--text);
-  color: #fff;
-  box-shadow: 0 14px 26px rgba(11,15,20,.20);
-}
-.btn-primary:hover{ opacity: .95; }
-.btn-ghost{
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--line);
-}
-.btn-ghost:hover{ box-shadow: 0 12px 24px rgba(11,15,20,.10); }
-.btn-wide{ width: 100%; }
-
-.micro{
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.section{ padding: 54px 0; }
-.section.subtle{
-  background: rgba(11,15,20,.02);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.stack{ display: flex; flex-direction: column; gap: 14px; }
-
-.card{
-  padding: 18px 18px;
-  border-radius: var(--r);
-  background: var(--soft);
-  border: 1px solid var(--line);
-}
-.card-title{ font-weight: 800; }
-.card-text{ color: var(--muted); margin-top: 6px; }
-
-.row{
-  padding: 16px 16px;
-  border-radius: var(--r);
-  background: #fff;
-  border: 1px solid var(--line);
-}
-.row-title{ font-weight: 800; }
-.row-text{ color: var(--muted); margin-top: 4px; }
-
-.form{
-  margin-top: 10px;
-  padding: 20px;
-  border-radius: var(--r);
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.field{ display: flex; flex-direction: column; gap: 8px; }
-.label{ font-weight: 800; font-size: 13px; }
-.input{
-  width: 100%;
-  padding: 14px 14px;
-  border-radius: var(--r2);
-  border: 1px solid var(--line);
-  background: rgba(11,15,20,.02);
-  font-size: 16px;
-  outline: none;
-}
-.input:focus{
-  background: #fff;
-  border-color: rgba(11,15,20,.22);
-}
-
-.fine{
-  margin: 0;
-  font-size: 12px;
-  color: var(--muted);
-}
-.note{
-  min-height: 18px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.faq{
-  padding: 16px 16px;
-  border-radius: var(--r);
-  border: 1px solid var(--line);
-  background: #fff;
-  margin-top: 12px;
-}
-.faq summary{ cursor: pointer; font-weight: 800; }
-.faq p{ color: var(--muted); margin: 10px 0 0; }
-
-.footer{
-  padding: 26px 0 94px;
-  border-top: 1px solid var(--line);
-}
-.footer-line{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.footer-strong{ font-weight: 800; }
-.footer-link{ color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
-.footer-link:hover{ border-bottom-color: rgba(11,15,20,.18); }
-.footer-sep{ color: var(--muted); }
-.footer-small{ color: var(--muted); font-size: 12px; margin-top: 8px; }
-
-/* Sticky CTA on mobile */
-.sticky{
-  position: fixed;
-  inset-inline: 0;
-  bottom: 0;
-  padding: 12px 12px max(12px, env(safe-area-inset-bottom));
-  background: rgba(255,255,255,.86);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid var(--line);
-  display: none;
-  z-index: 40;
-}
-@media (max-width: 780px){
-  .sticky{ display: block; }
-}
-
-/* Minimal Apple-ish reveal */
-[data-reveal]{
-  opacity: 0;
-  transform: translateY(10px);
-  filter: blur(1.5px);
-  will-change: transform, opacity, filter;
-}
-[data-reveal].is-visible{
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-  transition:
-    opacity .55s cubic-bezier(.2,.8,.2,1),
-    transform .65s cubic-bezier(.2,.8,.2,1),
-    filter .65s cubic-bezier(.2,.8,.2,1);
-}
-@media (prefers-reduced-motion: reduce){
-  [data-reveal]{ opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
-}
-(function () {
-  const PHONE = (window.__WHATSAPP_PHONE__ || "").trim();
-
-  const form = document.getElementById("whatsappForm");
-  const note = document.getElementById("formNote");
-  const year = document.getElementById("year");
-
-  const stickyBtn = document.getElementById("stickyWhatsApp");
-  const quickBtn = document.getElementById("quickWhatsApp");
-
-  if (year) year.textContent = String(new Date().getFullYear());
-
-  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function openWhatsApp(message) {
-    if (!PHONE) {
-      if (note) note.textContent = "צריך לעדכן את מספר ה‑WhatsApp בקוד (window.__WHATSAPP_PHONE__).";
-      return;
-    }
-    const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
-
-  function buildMessage(data) {
-    return [
-      "היי, אשמח לשיעורים פרטיים במתמטיקה בחיפה.",
-      "",
-      `שם ההורה: ${data.parentName}`,
-      `כיתה: ${data.grade}`,
-      `נושא כרגע: ${data.topic}`,
-      `טלפון לחזרה: ${data.phone}`,
-    ].join("\n");
-  }
-
-  function getFormData() {
-    const fd = new FormData(form);
-    return {
-      parentName: String(fd.get("parentName") || "").trim(),
-      grade: String(fd.get("grade") || "").trim(),
-      topic: String(fd.get("topic") || "").trim(),
-      phone: String(fd.get("phone") || "").trim(),
-    };
-  }
-
-  function validate(data) {
-    return data.parentName && data.grade && data.topic && data.phone;
-  }
-
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (note) note.textContent = "";
-
-      const data = getFormData();
-      if (!validate(data)) {
-        if (note) note.textContent = "כדי לפתוח שיחה, מלאו את כל השדות.";
-        return;
-      }
-      openWhatsApp(buildMessage(data));
-    });
-  }
-
-  function genericMessage() {
-    return "היי, אשמח לשיעורים פרטיים במתמטיקה בחיפה. אפשר לדבר?";
-  }
-
-  if (quickBtn) {
-    quickBtn.addEventListener("click", function () {
-      openWhatsApp(genericMessage());
-    });
-  }
-
-  if (stickyBtn) {
-    stickyBtn.addEventListener("click", function () {
-      let msg = genericMessage();
-      if (form) {
-        const data = getFormData();
-        if (validate(data)) msg = buildMessage(data);
-      }
-      openWhatsApp(msg);
-      const lead = document.getElementById("lead");
-      if (lead) lead.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-
-  // Minimal scroll reveal (Apple-ish, not flashy)
-  function initReveal() {
-    const els = Array.from(document.querySelectorAll("[data-reveal]"));
-    if (!els.length) return;
-
-    if (reduceMotion) {
-      els.forEach(el => el.classList.add("is-visible"));
-      return;
-    }
-
-    const io = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מתמטיקה בביטחון | שיעורים פרטיים בחיפה</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Heebo', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
         }
-      }
-    }, {
-      threshold: 0.12,
-      rootMargin: "0px 0px -12% 0px",
-    });
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
-    els.forEach(el => io.observe(el));
-  }
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-900">
+                <i class="fas fa-square-root-alt mr-2"></i>מתמטיקה בביטחון
+            </div>
+            <a href="#contact" class="hidden md:block bg-blue-900 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-800 transition">
+                תיאום שיעור
+            </a>
+        </div>
+    </nav>
 
-  initReveal();
-})();
+    <header class="hero-bg h-screen min-h-[600px] flex items-center justify-center text-white text-center px-4">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                לעבור מתסכול להצלחה <br> ולבנות ביטחון במתמטיקה
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light text-blue-100">
+                שיעורים פרטיים לכיתות א'–ט' בחיפה ע"י מורה בעלת תואר שני ו-13 שנות ניסיון.
+                <br>גישה מקצועית, עקבית ומותאמת אישית לסגירת פערים.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://wa.me/972500000000" target="_blank" class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-3 rounded-full font-bold shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> שלחו הודעה לתיאום
+                </a>
+                <a href="#contact" class="bg-white text-blue-900 hover:bg-gray-100 text-lg px-8 py-3 rounded-full font-bold shadow-lg transition">
+                    השאירו פרטים בטופס
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 px-4 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">למי השיעורים מתאימים?</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">כיתות א' עד ט'</h3>
+                <p class="text-sm text-gray-600">ליווי צמוד לתלמידי יסודי וחטיבת ביניים, כולל הכנה למבחני כניסה לכיתה ז'.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">צמצום פערים</h3>
+                <p class="text-sm text-gray-600">בניית בסיס חזק לתלמידים שצברו פערים בחומר ומעוניינים ליישר קו.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                <div class="w-14 h-14 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">חרדת מבחנים</h3>
+                <p class="text-sm text-gray-600">עבודה על הביטחון העצמי והורדת מפלס הלחץ לפני מבחנים חשובים.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                <div class="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">שיעורי בית ומבחנים</h3>
+                <p class="text-sm text-gray-600">עזרה שוטפת בהבנת החומר הנלמד בכיתה והכנה ממוקדת למבחנים.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-blue-50 py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">איך זה עובד?</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">תהליך מובנה ומקצועי, ללא "אבחונים" מיותרים, אלא עבודה תכל'ס מהרגע הראשון.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center relative">
+                <div class="relative z-10">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-blue-900 shadow-lg mx-auto mb-4 border-4 border-blue-200">1</div>
+                    <h3 class="text-xl font-bold mb-2">היכרות ומיפוי מהיר</h3>
+                    <p class="text-gray-600 px-4">המפגש הראשון מוקדש להיכרות אישית והבנה מהירה של נקודות החוזק והקושי, כדי להתחיל לעבוד נכון מיד.</p>
+                </div>
+                <div class="relative z-10">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-blue-900 shadow-lg mx-auto mb-4 border-4 border-blue-200">2</div>
+                    <h3 class="text-xl font-bold mb-2">תרגול מותאם אישית</h3>
+                    <p class="text-gray-600 px-4">למידה מדורגת בקצב של התלמיד/ה, תוך שימוש בשיטות הוראה מותאמות (כולל כלים ויזואליים ומשחקיים במידת הצורך).</p>
+                </div>
+                <div class="relative z-10">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-blue-900 shadow-lg mx-auto mb-4 border-4 border-blue-200">3</div>
+                    <h3 class="text-xl font-bold mb-2">עקביות ועדכון הורים</h3>
+                    <p class="text-gray-600 px-4">משימות בית קצרות לחיזוק הביטחון ועדכון שוטף להורים על ההתקדמות.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="w-full md:w-1/3">
+            <div class="aspect-[3/4] bg-gray-200 rounded-2xl shadow-lg flex items-center justify-center text-gray-400 overflow-hidden">
+                <i class="fas fa-user-tie text-6xl"></i>
+                </div>
+        </div>
+        <div class="w-full md:w-2/3">
+            <h2 class="text-3xl font-bold text-blue-900 mb-6">נעים להכיר, אני [השם שלך]</h2>
+            <p class="text-lg mb-4 text-gray-700 leading-relaxed">
+                אני מאמינה שכל ילד וילדה יכולים להצליח במתמטיקה כשהם מקבלים את הכלים הנכונים ואת הביטחון לנסות. הגישה שלי משלבת מקצועיות חסרת פשרות עם יחס חם ומכיל.
+            </p>
+            <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                    <span><strong>13 שנות ניסיון בהוראה:</strong> 11 שנים בבתי ספר יסודיים ו-2 שנים בחטיבת הביניים.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                    <span><strong>תואר שני (M.Ed)</strong> בהוראת המתמטיקה (חינוך על-יסודי).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                    <span><strong>הסמכה בהוראה מותאמת</strong> בחשבון ליסודי.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                    <span>הכשרה מקצועית בשימוש במשחקים לימודיים ככלי לחיזוק ההבנה וההנאה.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-10">פרטים טכניים ועלויות</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 text-right">
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-xl font-bold text-blue-300 mb-4 border-b border-gray-600 pb-2">מיקום וזמנים</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-red-400 w-6"></i> מרכז הכרמל, חיפה (בביתי).</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-clock text-yellow-400 w-6"></i> ימי שלישי וחמישי.</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-hourglass-half text-blue-400 w-6"></i> שעות קבלה: 17:00 – 19:00.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-xl font-bold text-green-300 mb-4 border-b border-gray-600 pb-2">מחיר ומדיניות</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3"><i class="fas fa-tag text-green-400 w-6"></i> <strong>180 ש"ח</strong> לשיעור.</li>
+                        <li class="flex items-start gap-3 text-sm text-gray-300">
+                            <i class="fas fa-info-circle text-gray-400 w-6 mt-1"></i>
+                            <div>
+                                <strong>מדיניות ביטולים:</strong> ביטול עד 24 שעות מראש ללא עלות. ביטול לאחר מכן יחויב במחיר מלא. איחור לשיעור ירד מזמן השיעור.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">שאלות נפוצות</h2>
+        <div class="space-y-4">
+            <details class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 cursor-pointer group">
+                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                    האם את מכינה למבחני כניסה לכיתה ז'?
+                    <span class="text-blue-500 group-open:rotate-180 transition transform"><i class="fas fa-chevron-down"></i></span>
+                </summary>
+                <p class="mt-2 text-gray-600">בהחלט. יש לי ניסיון רב בהכנה למעבר לחטיבה ובבניית הביטחון הדרוש למבחני מיון.</p>
+            </details>
+            <details class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 cursor-pointer group">
+                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                    האם זה מתאים לילדים עם לקויות למידה?
+                    <span class="text-blue-500 group-open:rotate-180 transition transform"><i class="fas fa-chevron-down"></i></span>
+                </summary>
+                <p class="mt-2 text-gray-600">יש לי תעודת הוראה מותאמת וניסיון רב בעבודה עם קשיים שונים. בשיחה הראשונית נבין האם המסגרת שלי מתאימה לצרכי הילד/ה.</p>
+            </details>
+            <details class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 cursor-pointer group">
+                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                    האם השיעורים הם "משחקים"?
+                    <span class="text-blue-500 group-open:rotate-180 transition transform"><i class="fas fa-chevron-down"></i></span>
+                </summary>
+                <p class="mt-2 text-gray-600">לא. אנו לומדים בצורה רצינית ומובנית. אני משלבת עקרונות משחקיים רק כשהדבר תורם להבנה או למוטיבציה, אבל המטרה היא למידה והצלחה.</p>
+            </details>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-blue-900 py-16 px-4">
+        <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-2">בואו נתחיל ברגל ימין</h2>
+            <p class="text-center text-gray-600 mb-8">השאירו פרטים ואחזור אליכם בהקדם לתיאום שיעור.</p>
+            
+            <form id="leadForm" class="space-y-4">
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">שם הורה</label>
+                        <input type="text" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">טלפון נייד</label>
+                        <input type="tel" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <span class="block text-sm font-bold text-gray-700 mb-1">עדיפות ליצירת קשר:</span>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="contact_pref" value="whatsapp" checked class="text-blue-600 focus:ring-blue-500"> הודעת וואטסאפ
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="contact_pref" value="call" class="text-blue-600 focus:ring-blue-500"> שיחה טלפונית
+                        </label>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">כיתה</label>
+                        <select class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                            <option>א'</option>
+                            <option>ב'</option>
+                            <option>ג'</option>
+                            <option>ד'</option>
+                            <option>ה'</option>
+                            <option>ו'</option>
+                            <option>ז'</option>
+                            <option>ח'</option>
+                            <option>ט'</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">קושי עיקרי</label>
+                        <select class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                            <option>פערים בחומר</option>
+                            <option>חוסר ביטחון / חרדה</option>
+                            <option>שיעורי בית ומבחנים</option>
+                            <option>הכנה לחטיבה</option>
+                            <option>אחר</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">תיאור קצר של המצב</label>
+                    <textarea rows="2" class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">מה המטרה החודשית שלכם?</label>
+                    <input type="text" placeholder="למשל: לעבור את המבחן הקרוב, להבין שברים..." class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">מועד מועדף (ניתן לסמן מספר אפשרויות)</label>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> שלישי 17:00</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> שלישי 18:00</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> חמישי 17:00</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" class="rounded"> חמישי 18:00</label>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-2 pt-2">
+                    <input type="checkbox" required class="mt-1 rounded text-blue-600 focus:ring-blue-500">
+                    <span class="text-xs text-gray-500">אני מאשר/ת את תנאי הביטול (24 שעות מראש) ואת המחיר (180 ש"ח לשיעור).</span>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-3 rounded-lg shadow-lg transition transform hover:-translate-y-1">
+                    שליחת פרטים
+                </button>
+            </form>
+
+            <div id="successMessage" class="hidden text-center py-8">
+                <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">תודה רבה!</h3>
+                <p class="text-gray-600 mb-6">הפרטים התקבלו בהצלחה. אצור איתכם קשר בהקדם.</p>
+                <a href="https://wa.me/972500000000" class="inline-block bg-green-500 text-white px-6 py-2 rounded-full font-bold hover:bg-green-600 transition">
+                    <i class="fab fa-whatsapp"></i> מעבר לשיחה בוואטסאפ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-400 py-8 text-center text-sm">
+        <p>&copy; 2024 מתמטיקה בביטחון - שיעורים פרטיים בחיפה.</p>
+    </footer>
+
+    <a href="https://wa.me/972500000000" target="_blank" class="whatsapp-float hover:shadow-xl">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real site, you would send data to a server here.
+            // For now, we simulate success:
+            this.style.display = 'none';
+            document.getElementById('successMessage').classList.remove('hidden');
+            
+            // Optional: Redirect to WhatsApp after 2 seconds
+            // setTimeout(() => { window.location.href = 'https://wa.me/972500000000'; }, 2000);
+        });
+    </script>
+</body>
+</html>
