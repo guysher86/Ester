@@ -20,7 +20,7 @@
     });
   }
 
-  // Reveal on scroll (subtle)
+  // Reveal on scroll
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!prefersReduced){
     const els = document.querySelectorAll(".reveal");
