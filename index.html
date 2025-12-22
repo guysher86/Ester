@@ -62,7 +62,7 @@
             background: rgba(255, 255, 255, 0.90);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(230, 240, 234, 0.6); /* מסגרת ירקרקה עדינה */
+            border: 1px solid rgba(230, 240, 234, 0.6);
             box-shadow: 0 8px 32px 0 rgba(94, 139, 117, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -112,7 +112,7 @@
 
         .floating-shape {
             position: absolute;
-            opacity: 0.05; /* הבהרתי קצת כדי שלא יתנגש */
+            opacity: 0.05;
             animation: float 25s infinite linear;
             pointer-events: none;
             color: #fff;
@@ -231,23 +231,16 @@
             <p class="text-gray-600 text-lg max-w-2xl mx-auto">תהליך למידה המבוסס על הבנה עמוקה ועצמאות.</p>
         </div>
         
-        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 relative z-10">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 relative z-10">
             <div class="relative text-center md:text-right group reveal delay-100">
                 <div class="step-icon-anim text-7xl font-black text-sage-100 absolute -top-6 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 z-0 transition group-hover:text-sage-200">01</div>
-                <div class="relative z-10 bg-white/60 p-6 rounded-2xl border border-white/60 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-2xl font-bold text-sage-800 mb-3">מיפוי ואסטרטגיה</h3>
-                    <p class="text-gray-700 leading-relaxed">במפגש הראשון אנחנו לא סתם "פותרים שיעורים". אנחנו מזהים במדויק איפה התלמיד תקוע ואיך המוח שלו עובד.</p>
-                </div>
-            </div>
-            <div class="relative text-center md:text-right group reveal delay-200">
-                <div class="step-icon-anim text-7xl font-black text-sage-100 absolute -top-6 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 z-0 transition group-hover:text-sage-200">02</div>
                 <div class="relative z-10 bg-white/60 p-6 rounded-2xl border border-white/60 shadow-sm hover:shadow-md transition">
                     <h3 class="text-2xl font-bold text-sage-800 mb-3">בניית ארגז כלים</h3>
                     <p class="text-gray-700 leading-relaxed">שימוש בטכניקות הוראה מתקדמות (ויזואליזציה, פירוק לגורמים) כדי שהחומר באמת יוטמע ולא רק ישונון.</p>
                 </div>
             </div>
-            <div class="relative text-center md:text-right group reveal delay-300">
-                <div class="step-icon-anim text-7xl font-black text-sage-100 absolute -top-6 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 z-0 transition group-hover:text-sage-200">03</div>
+            <div class="relative text-center md:text-right group reveal delay-200">
+                <div class="step-icon-anim text-7xl font-black text-sage-100 absolute -top-6 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 z-0 transition group-hover:text-sage-200">02</div>
                 <div class="relative z-10 bg-white/60 p-6 rounded-2xl border border-white/60 shadow-sm hover:shadow-md transition">
                     <h3 class="text-2xl font-bold text-sage-800 mb-3">עקביות ועצמאות</h3>
                     <p class="text-gray-700 leading-relaxed">היעד הוא עצמאות. משימות קצרות וממוקדות שמייצרות חוויות הצלחה ובונות אחריות אישית ללמידה.</p>
