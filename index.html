@@ -17,7 +17,7 @@
 
   <header class="site-header">
     <div class="container stack">
-      <div class="brand">
+      <div class="brand" data-reveal>
         <div class="badge" aria-hidden="true">חיפה</div>
         <div class="brand-text">
           <div class="brand-title">מורה למתמטיקה</div>
@@ -25,17 +25,36 @@
         </div>
       </div>
 
-      <h1 class="hero-title">
+      <h1 class="hero-title" data-reveal>
         שיעורים פרטיים במתמטיקה בחיפה —
         קצר, ברור, ובלי לחץ.
       </h1>
 
-      <p class="hero-lede">
+      <p class="hero-lede" data-reveal>
         שיעור אחד בשבוע שמחזיר שליטה:
         יסודות חזקים, תרגול חכם, וביטחון במבחנים.
       </p>
 
-      <div class="hero-cta">
+      <!-- (1) מקום למדיה ראשית: וידאו/תמונה -->
+      <div class="media media-hero" data-reveal data-parallax>
+        <!-- אופציה A: וידאו (מומלץ) -->
+        <!--
+        <video class="media-el" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+          <source src="assets/hero.mp4" type="video/mp4" />
+        </video>
+        -->
+
+        <!-- אופציה B: תמונה -->
+        <!-- <img class="media-el" src="assets/hero.jpg" alt="שיעור מתמטיקה בחיפה" loading="eager" /> -->
+
+        <!-- Placeholder עד שתשימו קובץ אמיתי -->
+        <div class="media-placeholder">
+          <div class="media-kicker">וידאו/תמונה ראשית</div>
+          <div class="media-hint">החליפו את ה‑placeholder בקובץ ב‑assets</div>
+        </div>
+      </div>
+
+      <div class="hero-cta" data-reveal>
         <a class="btn btn-primary" href="#lead" aria-label="מלאו פרטים לפתיחת שיחה בוואטסאפ">פותחים שיחה ב‑WhatsApp</a>
         <p class="micro">אין הרשמה לאתר. ממלאים פרטים → נפתחת שיחה חדשה עם הודעה מוכנה.</p>
       </div>
@@ -45,22 +64,31 @@
   <main>
     <section class="section">
       <div class="container stack">
-        <h2 class="section-title">איך זה עובד</h2>
+        <h2 class="section-title" data-reveal>איך זה עובד</h2>
 
         <div class="cards stack">
-          <div class="card">
+          <div class="card" data-reveal>
             <div class="card-title">1. ממלאים 4 שדות</div>
             <div class="card-body">שם הילד/ה, כיתה, נושא, ואיך נוח ליצור קשר.</div>
           </div>
 
-          <div class="card">
+          <div class="card" data-reveal>
             <div class="card-title">2. נפתחת שיחה ב‑WhatsApp</div>
             <div class="card-body">עם טקסט מסודר שמכיל את הפרטים — בלי טפסים, בלי מיילים.</div>
           </div>
 
-          <div class="card">
+          <div class="card" data-reveal>
             <div class="card-title">3. סוגרים התאמה בשיחה</div>
             <div class="card-body">מגדירים מטרה, מסגרת, ומתחילים.</div>
+          </div>
+        </div>
+
+        <!-- (2) מקום למדיה שניה: תמונה/סרטון קצר (לדוגמה: דף תרגול/לפני-אחרי) -->
+        <div class="media media-secondary" data-reveal data-parallax>
+          <!-- <img class="media-el" src="assets/worksheet.jpg" alt="דף תרגול ודוגמה לפתרון" loading="lazy" /> -->
+          <div class="media-placeholder">
+            <div class="media-kicker">תמונה/סרטון משני</div>
+            <div class="media-hint">לדוגמה: דף תרגול, סיכום שיעור, או לפני/אחרי</div>
           </div>
         </div>
       </div>
@@ -68,10 +96,10 @@
 
     <section class="section subtle" id="lead" aria-label="טופס לפתיחת שיחה בוואטסאפ">
       <div class="container stack">
-        <h2 class="section-title">פתחו שיחה — אני חוזרת אליכם מהר</h2>
-        <p class="section-lede">מטרת הטופס היא ליצור הודעה קצרה וברורה ב‑WhatsApp.</p>
+        <h2 class="section-title" data-reveal>פתחו שיחה — אני חוזרת אליכם מהר</h2>
+        <p class="section-lede" data-reveal>מטרת הטופס היא ליצור הודעה קצרה וברורה ב‑WhatsApp.</p>
 
-        <form class="form stack" id="whatsappForm" novalidate>
+        <form class="form stack" id="whatsappForm" novalidate data-reveal>
           <label class="field">
             <span class="label">שם ההורה</span>
             <input class="input" name="parentName" autocomplete="name" placeholder="לדוגמה: דנה" required />
@@ -107,33 +135,33 @@
 
     <section class="section">
       <div class="container stack">
-        <h2 class="section-title">למי זה מתאים</h2>
+        <h2 class="section-title" data-reveal>למי זה מתאים</h2>
 
         <div class="list stack" role="list">
-          <div class="list-item" role="listitem">תלמיד/ה שמבינים בכיתה אבל נתקעים בתרגול.</div>
-          <div class="list-item" role="listitem">פערים ביסודות (שברים, אחוזים, בעיות מילוליות).</div>
-          <div class="list-item" role="listitem">הכנה ממוקדת למבחן עם תכנית קצרה וברורה.</div>
+          <div class="list-item" role="listitem" data-reveal>תלמיד/ה שמבינים בכיתה אבל נתקעים בתרגול.</div>
+          <div class="list-item" role="listitem" data-reveal>פערים ביסודות (שברים, אחוזים, בעיות מילוליות).</div>
+          <div class="list-item" role="listitem" data-reveal>הכנה ממוקדת למבחן עם תכנית קצרה וברורה.</div>
         </div>
 
-        <div class="divider"></div>
+        <div class="divider" data-reveal></div>
 
-        <h2 class="section-title">מה תקבלו בפועל</h2>
+        <h2 class="section-title" data-reveal>מה תקבלו בפועל</h2>
         <div class="list stack" role="list">
-          <div class="list-item" role="listitem">אבחון מהיר: איפה באמת התקיעה.</div>
-          <div class="list-item" role="listitem">תרגול ממוקד + שיטות עבודה לבית.</div>
-          <div class="list-item" role="listitem">מטרה מדידה לשבוע הבא (לא “נראה”).</div>
+          <div class="list-item" role="listitem" data-reveal>אבחון מהיר: איפה באמת התקיעה.</div>
+          <div class="list-item" role="listitem" data-reveal>תרגול ממוקד + שיטות עבודה לבית.</div>
+          <div class="list-item" role="listitem" data-reveal>מטרה מדידה לשבוע הבא (לא “נראה”).</div>
         </div>
       </div>
     </section>
 
     <section class="section subtle">
       <div class="container stack">
-        <h2 class="section-title">שאלה נפוצה</h2>
-        <details class="faq">
+        <h2 class="section-title" data-reveal>שאלה נפוצה</h2>
+        <details class="faq" data-reveal>
           <summary>כמה זמן עד שרואים שינוי?</summary>
           <p>בדרך כלל כבר אחרי 2–3 שיעורים יש יותר סדר וביטחון, כי עובדים קודם על היסודות שמפילים את התרגילים.</p>
         </details>
-        <details class="faq">
+        <details class="faq" data-reveal>
           <summary>איפה מתקיימים השיעורים?</summary>
           <p>בחיפה. את הפרטים המדויקים נסגור בשיחה בהתאם לשכונה ולנוחות.</p>
         </details>
@@ -143,12 +171,12 @@
 
   <footer class="site-footer">
     <div class="container stack">
-      <div class="footer-line">
+      <div class="footer-line" data-reveal>
         <span class="footer-title">מורה למתמטיקה • חיפה</span>
         <span class="footer-sep" aria-hidden="true">•</span>
         <a class="footer-link" href="#lead">פתיחת שיחה ב‑WhatsApp</a>
       </div>
-      <div class="footer-small">© <span id="year"></span> כל הזכויות שמורות</div>
+      <div class="footer-small" data-reveal>© <span id="year"></span> כל הזכויות שמורות</div>
     </div>
   </footer>
 

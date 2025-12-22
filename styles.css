@@ -6,6 +6,7 @@
   --line: rgba(11,15,20,.10);
   --card: rgba(11,15,20,.03);
   --shadow: 0 12px 30px rgba(11,15,20,.08);
+  --shadow-soft: 0 10px 24px rgba(11,15,20,.10);
   --radius: 24px;
   --radius-sm: 16px;
   --max: 760px;
@@ -99,6 +100,53 @@ a{ color: inherit; }
 }
 .card-title{ font-weight: 700; }
 .card-body{ color: var(--muted); margin-top: 6px; }
+
+/* Media blocks (video/image placeholders) */
+.media{
+  position: relative;
+  border-radius: calc(var(--radius) + 6px);
+  border: 1px solid var(--line);
+  background: radial-gradient(1200px 500px at 20% 0%, rgba(11,15,20,.06), rgba(11,15,20,.02));
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transform: translateZ(0);
+}
+.media-hero{ aspect-ratio: 16 / 9; }
+.media-secondary{ aspect-ratio: 21 / 9; }
+
+.media-el{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-placeholder{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 24px;
+  gap: 6px;
+}
+.media-kicker{
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.media-hint{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* subtle glass overlay like Apple */
+.media::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0) 40%, rgba(0,0,0,.05));
+  pointer-events: none;
+}
 
 .form{
   margin-top: 6px;
@@ -217,6 +265,32 @@ a{ color: inherit; }
 .btn-sticky{
   width: min(var(--max), calc(100% - 24px));
   margin-inline: auto;
+}
+
+/* Apple-ish reveal on scroll */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+}
+[data-reveal].is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity .65s cubic-bezier(.2,.8,.2,1),
+              transform .75s cubic-bezier(.2,.8,.2,1),
+              filter .75s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
 /* Show sticky CTA on small screens */
