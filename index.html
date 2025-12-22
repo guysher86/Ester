@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>מתמטיקה בביטחון | שיעורים פרטיים במתמטיקה א–ט בחיפה</title>
   <meta name="description" content="שיעורים פרטיים במתמטיקה לכיתות א–ט בחיפה (מרכז הכרמל). 13 שנות ניסיון, הוראה מותאמת, תהליך שמחזיר ביטחון והבנה. תיאום ב-WhatsApp." />
-  <meta name="theme-color" content="#0A0A0B" />
+  <meta name="theme-color" content="#F5F5F7" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
   <header class="topbar" role="banner">
     <div class="wrap topbar__inner">
       <a class="brand" href="#top" aria-label="מתמטיקה בביטחון">
-        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true">∑</span>
         <span class="brand__name">מתמטיקה בביטחון</span>
       </a>
 
@@ -47,16 +47,17 @@
   </header>
 
   <button class="wa-fab" id="waFab" aria-label="לתיאום ב‑WhatsApp">
-    <span class="wa-fab__icon" aria-hidden="true">WA</span>
+    <span class="wa-fab__dot" aria-hidden="true"></span>
     <span class="wa-fab__text">לתיאום</span>
   </button>
 
   <main id="top">
+    <!-- HERO -->
     <section class="hero">
       <div class="hero__bg" aria-hidden="true">
-        <div class="orb orb--a"></div>
-        <div class="orb orb--b"></div>
-        <div class="gridGlow"></div>
+        <div class="hero__orb hero__orb--a"></div>
+        <div class="hero__orb hero__orb--b"></div>
+        <div class="hero__grain"></div>
       </div>
 
       <div class="wrap hero__content">
@@ -64,96 +65,98 @@
 
         <h1 class="headline reveal">
           מתמטיקה בביטחון
-          <span class="headline__sub">תהליך ברור שמחזיר הבנה, סדר וביטחון</span>
+          <span class="headline__sub">תהליך ברור שמחזיר הבנה, סדר וביטחון — בלי מאבק בבית</span>
         </h1>
 
         <p class="lead reveal">
           כשילד מתוסכל, נתקע או “לא אוהב מתמטיקה” — זה לא אומר שאין לו יכולת.
-          ברוב המקרים צריך התאמה, בסיס, והצלחות קטנות שחוזרות על עצמן עד שהביטחון חוזר.
+          לרוב צריך התאמה נכונה, בסיס יציב, והצלחות קטנות שחוזרות על עצמן עד שהביטחון חוזר.
         </p>
 
-        <div class="hero__stats reveal" role="list" aria-label="נקודות אמון">
-          <div class="stat" role="listitem">
-            <div class="stat__num">13</div>
-            <div class="stat__label">שנות ניסיון בהוראת מתמטיקה<br>ביסודי ובחטיבת הביניים</div>
+        <div class="trustGrid reveal" role="list" aria-label="נקודות אמון">
+          <div class="trust" role="listitem">
+            <div class="trust__title">13 שנות ניסיון</div>
+            <div class="trust__desc">הוראת מתמטיקה ביסודי ובחטיבת הביניים</div>
           </div>
-          <div class="stat" role="listitem">
-            <div class="stat__num">M.Ed</div>
-            <div class="stat__label">תואר שני בהוראת המתמטיקה<br>לעל‑יסודי</div>
+          <div class="trust" role="listitem">
+            <div class="trust__title">M.Ed</div>
+            <div class="trust__desc">תואר שני בהוראת המתמטיקה לעל‑יסודי</div>
           </div>
-          <div class="stat" role="listitem">
-            <div class="stat__num">מותאם</div>
-            <div class="stat__label">הוראה מותאמת ליסודי<br> + משחקולוגיה חינוכית</div>
+          <div class="trust" role="listitem">
+            <div class="trust__title">הוראה מותאמת</div>
+            <div class="trust__desc">+ משחקולוגיה חינוכית (לא “חוג משחק”)</div>
           </div>
         </div>
 
         <div class="hero__actions reveal">
           <a class="btn btn--primary" href="#contact">לתיאום ב‑WhatsApp</a>
-          <a class="btn btn--glass" href="#method">איך זה עובד</a>
+          <a class="btn btn--secondary" href="#method">איך זה עובד</a>
         </div>
 
-        <p class="tiny reveal">
-          אין מחיר/זמינות באתר — נתאים בשיחה קצרה ב‑WhatsApp לפי הילד/ה והצורך.
-          <span class="dotSep" aria-hidden="true">•</span>
+        <p class="micro reveal">
+          אין מחיר/זמינות באתר — הכל מותאם בשיחה קצרה לפי הצורך של הילד/ה.
+          <span class="sep" aria-hidden="true">•</span>
           הפרטים אינם נשמרים באתר.
         </p>
       </div>
 
       <div class="scrollCue" aria-hidden="true">
-        <div class="scrollCue__pill">גלילה</div>
-        <div class="scrollCue__line"></div>
+        <div class="scrollCue__mouse"></div>
+        <div class="scrollCue__label">גלילה</div>
       </div>
     </section>
 
+    <!-- WHY -->
     <section class="section" id="why">
       <div class="wrap">
-        <div class="section__head">
+        <header class="sectionHead">
           <h2 class="title reveal">למי זה מתאים</h2>
           <p class="sub reveal">
-            לתלמידים בכיתות א–ט ולהורים שרוצים ליווי מקצועי, רגוע ומדויק — בלי דרמה ובלי “מאבקי שיעורי בית”.
+            לתלמידים בכיתות א–ט ולהורים שרוצים תהליך מקצועי, רגוע ומדויק — שמחזיר הבנה וביטחון.
           </p>
-        </div>
+        </header>
 
-        <div class="cards">
+        <div class="cardGrid">
           <article class="card reveal">
             <h3>קושי בהבנה</h3>
             <p>כשאין בסיס יציב, כל נושא חדש מרגיש “שפה זרה”. בונים יסודות — ואז מתקדמים.</p>
           </article>
           <article class="card reveal">
             <h3>פערים מצטברים</h3>
-            <p>סוגרים פערים צעד‑צעד ומפתחים שיטה לפתרון, כך שהילד יודע מה לעשות לבד.</p>
+            <p>סוגרים פערים צעד‑צעד, עד לרמה הנדרשת בכיתה — ואז שומרים רצף שמחזיק.</p>
           </article>
           <article class="card reveal">
             <h3>מבחנים ושיעורי בית</h3>
-            <p>מארגנים חשיבה, מצמצמים טעויות, ומחזקים ביטחון — עם תרגול קצר שמחזיק.</p>
+            <p>מארגנים חשיבה, מצמצמים טעויות, ומחזקים ביטחון — עם תרגול קצר וממוקד.</p>
           </article>
         </div>
 
-        <div class="pillNote reveal" role="note">
-          <span class="pillNote__dot" aria-hidden="true"></span>
+        <div class="note reveal" role="note">
+          <span class="note__icon" aria-hidden="true">📍</span>
           <p><strong>מיקום:</strong> השיעורים מתקיימים אצלי בבית במרכז הכרמל (כתובת מדויקת לאחר תיאום).</p>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="method">
+    <!-- METHOD -->
+    <section class="section section--soft" id="method">
       <div class="wrap method">
         <div class="method__sticky">
           <h2 class="title reveal">איך זה עובד</h2>
           <p class="sub reveal">
-            תהליך קצר וברור. בלי “אבחון” רשמי — כן מיפוי נקודתי והתקדמות מדורגת.
+            תהליך קצר וברור. אין “אבחון” רשמי — כן מיפוי נקודתי והתקדמות מדורגת.
           </p>
-          <div class="method__cta reveal">
+          <div class="reveal">
             <a class="btn btn--primary" href="#contact">לתיאום ב‑WhatsApp</a>
           </div>
         </div>
 
-        <div class="method__steps" aria-label="שלבים">
+        <div class="steps" aria-label="שלבים">
           <div class="step reveal">
             <div class="step__num">1</div>
             <div class="step__body">
               <h3>היכרות ומיפוי נקודתי</h3>
-              <p>מזהים את “נקודת השבירה” ואת מיומנויות המפתח שחסרות כרגע.</p>
+              <p>מזהים את נקודת התקיעה והמיומנויות שחסרות כרגע — בלי להעמיס.</p>
             </div>
           </div>
 
@@ -161,7 +164,7 @@
             <div class="step__num">2</div>
             <div class="step__body">
               <h3>הוראה מותאמת + תרגול מדורג</h3>
-              <p>מסדרים הבנה, עובדים בשכבות, ובונים דרך פתרון עם סדר ודיוק.</p>
+              <p>מסדרים הבנה, עובדים בשכבות, ובונים שיטה ברורה לפתרון.</p>
             </div>
           </div>
 
@@ -169,13 +172,14 @@
             <div class="step__num">3</div>
             <div class="step__body">
               <h3>רצף שמחזיק</h3>
-              <p>משימה קצרה לבית (כ‑10 דקות) ושגרה שמחברת הצלחות לביטחון אמיתי.</p>
+              <p>שגרה קצרה לבית (כ‑10 דקות) שמחברת הצלחה לביטחון אמיתי לאורך זמן.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="wrap about">
         <div class="about__copy">
@@ -193,41 +197,41 @@
             הגישה שלי משלבת מקצועיות גבוהה עם חוויה חיובית ושפה ברורה — כדי שהילד יבין באמת, יצליח, ויחזור להאמין בעצמו.
           </p>
 
-          <div class="badges reveal" aria-label="סיכום מקצועי">
-            <span class="badge">13 שנות ניסיון</span>
-            <span class="badge">מחנכת 11 שנים (יסודי)</span>
-            <span class="badge">2 שנים חטיבת ביניים</span>
-            <span class="badge">M.Ed מתמטיקה</span>
-            <span class="badge">הוראה מותאמת</span>
+          <div class="chips reveal" aria-label="עוגנים מקצועיים">
+            <span class="chip">13 שנות ניסיון</span>
+            <span class="chip">מחנכת 11 שנים (יסודי)</span>
+            <span class="chip">2 שנים חטיבת ביניים</span>
+            <span class="chip">M.Ed מתמטיקה</span>
+            <span class="chip">הוראה מותאמת</span>
           </div>
         </div>
 
-        <aside class="about__panel reveal" aria-label="מסר להורים">
-          <div class="panel">
-            <h3>מה חשוב לי בשיעור</h3>
-            <ul>
-              <li>בהירות: הילד יודע מה עושים ולמה.</li>
-              <li>דיוק: בונים בסיס לפני שמתקדמים.</li>
-              <li>ביטחון: הצלחות קטנות שמתחברות.</li>
-              <li>רוגע: פחות מאבק בבית, יותר מסוגלות.</li>
-            </ul>
+        <aside class="panel reveal" aria-label="הבטחה להורים">
+          <h3>מה חשוב לי בשיעור</h3>
+          <ul>
+            <li>בהירות: הילד יודע מה עושים ולמה.</li>
+            <li>דיוק: בונים בסיס לפני שמתקדמים.</li>
+            <li>ביטחון: הצלחות קטנות שמתחברות.</li>
+            <li>רוגע: פחות מאבק בבית, יותר מסוגלות.</li>
+          </ul>
 
-            <div class="panel__hr"></div>
+          <div class="panel__line"></div>
 
-            <p class="panel__small">
-              התיאום מתבצע ב‑WhatsApp בלבד.
-              האתר לא שומר פרטים — השדות למטה רק פותחים שיחה חדשה עם הפרטים שהוזנו.
-            </p>
+          <p class="panel__small">
+            התיאום מתבצע ב‑WhatsApp בלבד.
+            האתר לא שומר פרטים — הטופס למטה רק פותח שיחה חדשה עם הפרטים שהוזנו.
+          </p>
 
-            <a class="btn btn--primary btn--full" href="#contact">לתיאום ב‑WhatsApp</a>
-          </div>
+          <a class="btn btn--primary btn--full" href="#contact">לתיאום ב‑WhatsApp</a>
         </aside>
       </div>
     </section>
 
-    <section class="section section--alt" id="faq">
+    <!-- FAQ -->
+    <section class="section section--soft" id="faq">
       <div class="wrap">
         <h2 class="title reveal">שאלות נפוצות</h2>
+
         <div class="faq">
           <details class="reveal">
             <summary>למי זה מתאים?</summary>
@@ -252,6 +256,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="wrap">
         <div class="contact">
@@ -261,8 +266,8 @@
               ממלאים שם פרטי, שם משפחה ושם הילד/ה. בלחיצה אחת תיפתח שיחה חדשה ב‑WhatsApp עם ההודעה.
             </p>
 
-            <div class="contact__note reveal" role="note">
-              <span class="contact__spark" aria-hidden="true"></span>
+            <div class="callout reveal" role="note">
+              <span class="callout__dot" aria-hidden="true"></span>
               <p><strong>אין מחיר/זמינות באתר.</strong> כל ההתאמה נעשית בשיחה כדי לדייק לצורך של הילד/ה.</p>
             </div>
           </div>
@@ -285,13 +290,13 @@
 
             <p class="error" id="errorText" role="alert" aria-live="polite"></p>
 
-            <button class="btn btn--primary btn--full" id="whatsAppBtn" type="submit">
+            <button class="btn btn--primary btn--full" type="submit">
               שליחה ב‑WhatsApp
             </button>
 
-            <p class="tiny">
+            <p class="micro micro--muted">
               הפרטים נשלחים ישירות ב‑WhatsApp ואינם נשמרים באתר.
-              <span class="dotSep" aria-hidden="true">•</span>
+              <span class="sep" aria-hidden="true">•</span>
               יעד: <span dir="ltr">972546969509</span>
             </p>
           </form>
@@ -305,9 +310,7 @@
     </section>
   </main>
 
-  <script>
-    window.__WHATSAPP_PHONE__ = "972546969509";
-  </script>
+  <script>window.__WHATSAPP_PHONE__ = "972546969509";</script>
   <script src="script.js"></script>
 </body>
 </html>

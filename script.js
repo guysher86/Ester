@@ -20,7 +20,7 @@
     });
   }
 
-  // Reveal on scroll (subtle, Apple-like)
+  // Reveal on scroll (subtle)
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!prefersReduced){
     const els = document.querySelectorAll(".reveal");
@@ -38,7 +38,7 @@
   }
 
   // Floating button scroll to contact
-  const waFab = $("waFab");
+  const waFab = document.getElementById("waFab");
   if (waFab){
     waFab.addEventListener("click", () => {
       const el = document.querySelector("#contact");
@@ -58,14 +58,12 @@
   const clean = (s) => (s || "").toString().trim().replace(/\s+/g, " ");
   const setError = (msg) => { if (errorText) errorText.textContent = msg || ""; };
 
-  const buildMessage = (firstName, lastName, childName) => {
-    return [
-      "היי, הגעתי מהאתר ‘מתמטיקה בביטחון’.",
-      `שמי: ${firstName} ${lastName}`,
-      `שם הילד/ה: ${childName}`,
-      "אשמח לשמוע פרטים ולתאם שיעור."
-    ].join("\n");
-  };
+  const buildMessage = (firstName, lastName, childName) => [
+    "היי, הגעתי מהאתר ‘מתמטיקה בביטחון’.",
+    `שמי: ${firstName} ${lastName}`,
+    `שם הילד/ה: ${childName}`,
+    "אשמח לשמוע פרטים ולתאם שיעור."
+  ].join("\n");
 
   const openWhatsApp = (text) => {
     if (!PHONE) throw new Error("חסר מספר יעד ל‑WhatsApp.");

@@ -1,13 +1,12 @@
-# מתמטיקה בביטחון — Premium Scroll (GitHub Pages)
+# מתמטיקה בביטחון — Premium Light Scroll (GitHub Pages)
 
-אתר סטטי בעברית (RTL), עיצוב יוקרתי ונגיש, עם אנימציות עדינות (בסגנון Apple),
-שנשלטות על ידי IntersectionObserver, ומכבדות prefers-reduced-motion.
+גרסה בהירה, יוקרתית ונגישה (RTL) עם אנימציות עדינות בסגנון Apple.
+- בלי מחיר/זמינות באתר
+- בלי שמירת מידע (נפתח WhatsApp בלבד)
+- תמיכה ב-prefers-reduced-motion
 
-## WhatsApp
-מספר יעד מוגדר: `972546969509`
+WhatsApp יעד: 972546969509
 
-## קבצים
-- index.html
-- styles.css
-- script.js
-- .nojekyll
+עדכון לריפו:
+להחליף את index.html + styles.css + script.js + .nojekyll
+ולבצע Commit+Push.
