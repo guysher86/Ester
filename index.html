@@ -1,195 +1,377 @@
-<!doctype html>
-<html lang="he" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>מורה למתמטיקה בחיפה | שיעורים פרטיים ותגבור</title>
-  <meta name="description" content="שיעורים פרטיים במתמטיקה בחיפה ליסודי וחטיבת ביניים. תגבור לפני מבחנים, חיזוק יסודות וביטחון. פתיחת שיחה ב-WhatsApp עם פרטים." />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
+/* One-pager (RTL) – minimal, bright, Apple-ish */
+:root{
+  --bg: #ffffff;
+  --text: #0b0f14;
+  --muted: #5a6674;
+  --line: rgba(11,15,20,.10);
+  --soft: rgba(11,15,20,.03);
+  --shadow: 0 16px 40px rgba(11,15,20,.10);
+  --r: 24px;
+  --r2: 16px;
+  --max: 760px;
+}
 
-<body>
-  <a class="skip" href="#lead">דלג לטופס</a>
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: "Heebo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
 
-  <header class="site-header">
-    <div class="container stack">
-      <div class="brand" data-reveal>
-        <div class="badge" aria-hidden="true">חיפה</div>
-        <div class="brand-text">
-          <div class="brand-title">מורה למתמטיקה</div>
-          <div class="brand-sub">יסודי • חטיבת ביניים • תגבור לפני מבחנים</div>
-        </div>
-      </div>
+a{ color: inherit; }
+.container{
+  width: min(var(--max), calc(100% - 40px));
+  margin-inline: auto;
+}
 
-      <h1 class="hero-title" data-reveal>
-        שיעורים פרטיים במתמטיקה בחיפה —
-        קצר, ברור, ובלי לחץ.
-      </h1>
+.skip{
+  position: absolute;
+  inset-inline-start: 12px;
+  top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--text);
+  color: #fff;
+  transform: translateY(-160%);
+  transition: transform .2s ease;
+  z-index: 50;
+}
+.skip:focus{ transform: translateY(0); }
 
-      <p class="hero-lede" data-reveal>
-        שיעור אחד בשבוע שמחזיר שליטה:
-        יסודות חזקים, תרגול חכם, וביטחון במבחנים.
-      </p>
+.hero{
+  padding: 56px 0 34px;
+  border-bottom: 1px solid var(--line);
+}
 
-      <!-- (1) מקום למדיה ראשית: וידאו/תמונה -->
-      <div class="media media-hero" data-reveal data-parallax>
-        <!-- אופציה A: וידאו (מומלץ) -->
-        <!--
-        <video class="media-el" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
-          <source src="assets/hero.mp4" type="video/mp4" />
-        </video>
-        -->
+.topline{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.pill{
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(11,15,20,.06);
+  border: 1px solid var(--line);
+}
+.topline-muted{ color: var(--muted); font-size: 13px; }
+.topline-sep{ color: var(--muted); }
 
-        <!-- אופציה B: תמונה -->
-        <!-- <img class="media-el" src="assets/hero.jpg" alt="שיעור מתמטיקה בחיפה" loading="eager" /> -->
+.h1{
+  margin: 0;
+  font-size: clamp(30px, 4.2vw, 48px);
+  letter-spacing: -0.02em;
+}
+.h2{
+  margin: 0 0 14px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.lede{
+  margin: 14px 0 0;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 58ch;
+}
+.lede.small{ font-size: 15px; margin-top: 8px; }
 
-        <!-- Placeholder עד שתשימו קובץ אמיתי -->
-        <div class="media-placeholder">
-          <div class="media-kicker">וידאו/תמונה ראשית</div>
-          <div class="media-hint">החליפו את ה‑placeholder בקובץ ב‑assets</div>
-        </div>
-      </div>
+.trust{
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 13px;
+}
+.trust-dot{ opacity: .7; }
 
-      <div class="hero-cta" data-reveal>
-        <a class="btn btn-primary" href="#lead" aria-label="מלאו פרטים לפתיחת שיחה בוואטסאפ">פותחים שיחה ב‑WhatsApp</a>
-        <p class="micro">אין הרשמה לאתר. ממלאים פרטים → נפתחת שיחה חדשה עם הודעה מוכנה.</p>
-      </div>
-    </div>
-  </header>
+.cta{
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  <main>
-    <section class="section">
-      <div class="container stack">
-        <h2 class="section-title" data-reveal>איך זה עובד</h2>
+.btn{
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 16px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform .06s ease, opacity .2s ease, box-shadow .25s ease;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{
+  background: var(--text);
+  color: #fff;
+  box-shadow: 0 14px 26px rgba(11,15,20,.20);
+}
+.btn-primary:hover{ opacity: .95; }
+.btn-ghost{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover{ box-shadow: 0 12px 24px rgba(11,15,20,.10); }
+.btn-wide{ width: 100%; }
 
-        <div class="cards stack">
-          <div class="card" data-reveal>
-            <div class="card-title">1. ממלאים 4 שדות</div>
-            <div class="card-body">שם הילד/ה, כיתה, נושא, ואיך נוח ליצור קשר.</div>
-          </div>
+.micro{
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
 
-          <div class="card" data-reveal>
-            <div class="card-title">2. נפתחת שיחה ב‑WhatsApp</div>
-            <div class="card-body">עם טקסט מסודר שמכיל את הפרטים — בלי טפסים, בלי מיילים.</div>
-          </div>
+.section{ padding: 54px 0; }
+.section.subtle{
+  background: rgba(11,15,20,.02);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
 
-          <div class="card" data-reveal>
-            <div class="card-title">3. סוגרים התאמה בשיחה</div>
-            <div class="card-body">מגדירים מטרה, מסגרת, ומתחילים.</div>
-          </div>
-        </div>
+.stack{ display: flex; flex-direction: column; gap: 14px; }
 
-        <!-- (2) מקום למדיה שניה: תמונה/סרטון קצר (לדוגמה: דף תרגול/לפני-אחרי) -->
-        <div class="media media-secondary" data-reveal data-parallax>
-          <!-- <img class="media-el" src="assets/worksheet.jpg" alt="דף תרגול ודוגמה לפתרון" loading="lazy" /> -->
-          <div class="media-placeholder">
-            <div class="media-kicker">תמונה/סרטון משני</div>
-            <div class="media-hint">לדוגמה: דף תרגול, סיכום שיעור, או לפני/אחרי</div>
-          </div>
-        </div>
-      </div>
-    </section>
+.card{
+  padding: 18px 18px;
+  border-radius: var(--r);
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+.card-title{ font-weight: 800; }
+.card-text{ color: var(--muted); margin-top: 6px; }
 
-    <section class="section subtle" id="lead" aria-label="טופס לפתיחת שיחה בוואטסאפ">
-      <div class="container stack">
-        <h2 class="section-title" data-reveal>פתחו שיחה — אני חוזרת אליכם מהר</h2>
-        <p class="section-lede" data-reveal>מטרת הטופס היא ליצור הודעה קצרה וברורה ב‑WhatsApp.</p>
+.row{
+  padding: 16px 16px;
+  border-radius: var(--r);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.row-title{ font-weight: 800; }
+.row-text{ color: var(--muted); margin-top: 4px; }
 
-        <form class="form stack" id="whatsappForm" novalidate data-reveal>
-          <label class="field">
-            <span class="label">שם ההורה</span>
-            <input class="input" name="parentName" autocomplete="name" placeholder="לדוגמה: דנה" required />
-          </label>
+.form{
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: var(--r);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-          <label class="field">
-            <span class="label">שם הילד/ה + כיתה</span>
-            <input class="input" name="student" placeholder="לדוגמה: יואב, כיתה ו׳" required />
-          </label>
+.field{ display: flex; flex-direction: column; gap: 8px; }
+.label{ font-weight: 800; font-size: 13px; }
+.input{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: var(--r2);
+  border: 1px solid var(--line);
+  background: rgba(11,15,20,.02);
+  font-size: 16px;
+  outline: none;
+}
+.input:focus{
+  background: #fff;
+  border-color: rgba(11,15,20,.22);
+}
 
-          <label class="field">
-            <span class="label">מה הנושא כרגע</span>
-            <input class="input" name="topic" placeholder="לדוגמה: שברים / אחוזים / משוואות" required />
-          </label>
+.fine{
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.note{
+  min-height: 18px;
+  font-size: 13px;
+  color: var(--muted);
+}
 
-          <label class="field">
-            <span class="label">טלפון לחזרה</span>
-            <input class="input" name="phone" inputmode="tel" autocomplete="tel" placeholder="לדוגמה: 050-1234567" required />
-          </label>
+.faq{
+  padding: 16px 16px;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  background: #fff;
+  margin-top: 12px;
+}
+.faq summary{ cursor: pointer; font-weight: 800; }
+.faq p{ color: var(--muted); margin: 10px 0 0; }
 
-          <button class="btn btn-primary btn-wide" type="submit">
-            לפתוח שיחה ב‑WhatsApp
-          </button>
+.footer{
+  padding: 26px 0 94px;
+  border-top: 1px solid var(--line);
+}
+.footer-line{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-strong{ font-weight: 800; }
+.footer-link{ color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+.footer-link:hover{ border-bottom-color: rgba(11,15,20,.18); }
+.footer-sep{ color: var(--muted); }
+.footer-small{ color: var(--muted); font-size: 12px; margin-top: 8px; }
 
-          <p class="fineprint">
-            בלחיצה נפתח חלון WhatsApp עם הודעה מוכנה. הפרטים לא נשמרים באתר.
-          </p>
+/* Sticky CTA on mobile */
+.sticky{
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 12px 12px max(12px, env(safe-area-inset-bottom));
+  background: rgba(255,255,255,.86);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+  display: none;
+  z-index: 40;
+}
+@media (max-width: 780px){
+  .sticky{ display: block; }
+}
 
-          <div class="form-note" id="formNote" role="status" aria-live="polite"></div>
-        </form>
-      </div>
-    </section>
+/* Minimal Apple-ish reveal */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(1.5px);
+  will-change: transform, opacity, filter;
+}
+[data-reveal].is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity .55s cubic-bezier(.2,.8,.2,1),
+    transform .65s cubic-bezier(.2,.8,.2,1),
+    filter .65s cubic-bezier(.2,.8,.2,1);
+}
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{ opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+}
+(function () {
+  const PHONE = (window.__WHATSAPP_PHONE__ || "").trim();
 
-    <section class="section">
-      <div class="container stack">
-        <h2 class="section-title" data-reveal>למי זה מתאים</h2>
+  const form = document.getElementById("whatsappForm");
+  const note = document.getElementById("formNote");
+  const year = document.getElementById("year");
 
-        <div class="list stack" role="list">
-          <div class="list-item" role="listitem" data-reveal>תלמיד/ה שמבינים בכיתה אבל נתקעים בתרגול.</div>
-          <div class="list-item" role="listitem" data-reveal>פערים ביסודות (שברים, אחוזים, בעיות מילוליות).</div>
-          <div class="list-item" role="listitem" data-reveal>הכנה ממוקדת למבחן עם תכנית קצרה וברורה.</div>
-        </div>
+  const stickyBtn = document.getElementById("stickyWhatsApp");
+  const quickBtn = document.getElementById("quickWhatsApp");
 
-        <div class="divider" data-reveal></div>
+  if (year) year.textContent = String(new Date().getFullYear());
 
-        <h2 class="section-title" data-reveal>מה תקבלו בפועל</h2>
-        <div class="list stack" role="list">
-          <div class="list-item" role="listitem" data-reveal>אבחון מהיר: איפה באמת התקיעה.</div>
-          <div class="list-item" role="listitem" data-reveal>תרגול ממוקד + שיטות עבודה לבית.</div>
-          <div class="list-item" role="listitem" data-reveal>מטרה מדידה לשבוע הבא (לא “נראה”).</div>
-        </div>
-      </div>
-    </section>
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    <section class="section subtle">
-      <div class="container stack">
-        <h2 class="section-title" data-reveal>שאלה נפוצה</h2>
-        <details class="faq" data-reveal>
-          <summary>כמה זמן עד שרואים שינוי?</summary>
-          <p>בדרך כלל כבר אחרי 2–3 שיעורים יש יותר סדר וביטחון, כי עובדים קודם על היסודות שמפילים את התרגילים.</p>
-        </details>
-        <details class="faq" data-reveal>
-          <summary>איפה מתקיימים השיעורים?</summary>
-          <p>בחיפה. את הפרטים המדויקים נסגור בשיחה בהתאם לשכונה ולנוחות.</p>
-        </details>
-      </div>
-    </section>
-  </main>
+  function openWhatsApp(message) {
+    if (!PHONE) {
+      if (note) note.textContent = "צריך לעדכן את מספר ה‑WhatsApp בקוד (window.__WHATSAPP_PHONE__).";
+      return;
+    }
+    const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 
-  <footer class="site-footer">
-    <div class="container stack">
-      <div class="footer-line" data-reveal>
-        <span class="footer-title">מורה למתמטיקה • חיפה</span>
-        <span class="footer-sep" aria-hidden="true">•</span>
-        <a class="footer-link" href="#lead">פתיחת שיחה ב‑WhatsApp</a>
-      </div>
-      <div class="footer-small" data-reveal>© <span id="year"></span> כל הזכויות שמורות</div>
-    </div>
-  </footer>
+  function buildMessage(data) {
+    return [
+      "היי, אשמח לשיעורים פרטיים במתמטיקה בחיפה.",
+      "",
+      `שם ההורה: ${data.parentName}`,
+      `כיתה: ${data.grade}`,
+      `נושא כרגע: ${data.topic}`,
+      `טלפון לחזרה: ${data.phone}`,
+    ].join("\n");
+  }
 
-  <div class="sticky-cta" aria-hidden="false">
-    <button class="btn btn-primary btn-sticky" id="stickyWhatsApp">
-      לפתוח WhatsApp
-    </button>
-  </div>
+  function getFormData() {
+    const fd = new FormData(form);
+    return {
+      parentName: String(fd.get("parentName") || "").trim(),
+      grade: String(fd.get("grade") || "").trim(),
+      topic: String(fd.get("topic") || "").trim(),
+      phone: String(fd.get("phone") || "").trim(),
+    };
+  }
 
-  <script>
-    // עדכן כאן את המספר שלך בפורמט בינלאומי ללא פלוס, למשל: 972501234567
-    window.__WHATSAPP_PHONE__ = "972500000000";
-  </script>
-  <script src="script.js"></script>
-</body>
-</html>
+  function validate(data) {
+    return data.parentName && data.grade && data.topic && data.phone;
+  }
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (note) note.textContent = "";
+
+      const data = getFormData();
+      if (!validate(data)) {
+        if (note) note.textContent = "כדי לפתוח שיחה, מלאו את כל השדות.";
+        return;
+      }
+      openWhatsApp(buildMessage(data));
+    });
+  }
+
+  function genericMessage() {
+    return "היי, אשמח לשיעורים פרטיים במתמטיקה בחיפה. אפשר לדבר?";
+  }
+
+  if (quickBtn) {
+    quickBtn.addEventListener("click", function () {
+      openWhatsApp(genericMessage());
+    });
+  }
+
+  if (stickyBtn) {
+    stickyBtn.addEventListener("click", function () {
+      let msg = genericMessage();
+      if (form) {
+        const data = getFormData();
+        if (validate(data)) msg = buildMessage(data);
+      }
+      openWhatsApp(msg);
+      const lead = document.getElementById("lead");
+      if (lead) lead.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  // Minimal scroll reveal (Apple-ish, not flashy)
+  function initReveal() {
+    const els = Array.from(document.querySelectorAll("[data-reveal]"));
+    if (!els.length) return;
+
+    if (reduceMotion) {
+      els.forEach(el => el.classList.add("is-visible"));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      }
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -12% 0px",
+    });
+
+    els.forEach(el => io.observe(el));
+  }
+
+  initReveal();
+})();
