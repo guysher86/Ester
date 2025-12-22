@@ -15,17 +15,18 @@
 <body>
   <a class="skip" href="#contact">דלגי לתיאום</a>
 
-  <header class="topbar" role="banner">
-    <div class="wrap topbar__inner">
+  <!-- Global (thin) -->
+  <header class="global" role="banner">
+    <div class="wrap global__inner">
       <a class="brand" href="#top" aria-label="מתמטיקה בביטחון">
         <span class="brand__mark" aria-hidden="true">∑</span>
         <span class="brand__name">מתמטיקה בביטחון</span>
       </a>
 
-      <nav class="nav" aria-label="ניווט">
-        <a href="#value">מה מקבלים</a>
-        <a href="#about">עליי</a>
-        <a class="nav__cta" href="#contact">WhatsApp</a>
+      <nav class="globalNav" aria-label="ניווט עליון">
+        <a href="pages/coming-soon.html" class="mutedLink">מאמרים</a>
+        <a href="pages/coming-soon.html" class="mutedLink">שאלות</a>
+        <a class="pill" href="#contact">WhatsApp</a>
       </nav>
 
       <button class="navToggle" id="navToggle" aria-label="פתח/סגור תפריט" aria-expanded="false">
@@ -34,11 +35,30 @@
     </div>
 
     <div class="mobileNav" id="mobileNav" aria-hidden="true">
-      <a href="#value">מה מקבלים</a>
+      <a href="#highlights">סקירה</a>
+      <a href="#closer">בפנים</a>
       <a href="#about">עליי</a>
+      <a href="pages/coming-soon.html">מאמרים</a>
       <a class="mobileNav__cta" href="#contact">WhatsApp</a>
     </div>
   </header>
+
+  <!-- Local nav (Apple-like) -->
+  <div class="localNav" role="navigation" aria-label="ניווט מקומי">
+    <div class="wrap localNav__inner">
+      <div class="localNav__left">
+        <span class="localNav__title">סקירה</span>
+      </div>
+
+      <div class="localNav__links">
+        <a href="#highlights">הדגשים</a>
+        <a href="#closer">להציץ</a>
+        <a href="#about">עליי</a>
+      </div>
+
+      <a class="localNav__cta" href="#contact">לתיאום</a>
+    </div>
+  </div>
 
   <button class="fab" id="waFab" aria-label="לתיאום ב‑WhatsApp">
     <span class="fab__dot" aria-hidden="true"></span>
@@ -50,64 +70,95 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="kicker reveal">שיעורים פרטיים במתמטיקה • א–ט • חיפה</p>
+          <p class="eyebrow reveal">שיעורים פרטיים במתמטיקה • א–ט • חיפה (מרכז הכרמל)</p>
 
-          <h1 class="h1 reveal">ביטחון במתמטיקה.</h1>
-          <p class="lead reveal">שיעור פרטי ברור שמחזיר הבנה ושקט בבית.</p>
+          <h1 class="h1 reveal">מתמטיקה בביטחון</h1>
+          <p class="heroWord reveal">ברור.</p>
 
-          <ul class="bullets reveal" aria-label="נקודות קצרות">
-            <li>סוגרים פערים.</li>
-            <li>בונים שיטה.</li>
-          </ul>
+          <p class="lead reveal">
+            תהליך קצר שמחזיר הבנה, שיטה וביטחון.
+          </p>
 
           <div class="actions reveal">
             <a class="btn btn--primary" href="#contact">לתיאום ב‑WhatsApp</a>
-            <a class="btn btn--ghost" href="#value">עוד 20 שניות</a>
+            <a class="btn btn--ghost" href="#highlights">קבלי את הדגשים</a>
           </div>
 
-          <p class="micro reveal">תיאום ב‑WhatsApp בלבד.</p>
+          <div class="fine reveal">
+            <span class="fine__dot" aria-hidden="true"></span>
+            תיאום ב‑WhatsApp בלבד.
+          </div>
         </div>
 
-        <aside class="heroCard reveal" aria-label="אמון">
-          <div class="heroCard__row">
-            <div class="heroCard__big">13</div>
-            <div class="heroCard__text">שנות ניסיון בהוראת מתמטיקה<br>ביסודי ובחטיבת הביניים</div>
+        <div class="hero__visual reveal" aria-hidden="true">
+          <div class="screen" id="screen">
+            <div class="screen__glow"></div>
+            <div class="screen__spec">א–ט • חיפה • שיעור פרטי</div>
           </div>
-          <div class="heroCard__line"></div>
-          <div class="heroCard__row">
-            <div class="heroCard__tag">M.Ed</div>
-            <div class="heroCard__text">תואר שני בהוראת המתמטיקה</div>
-          </div>
-          <div class="heroCard__row">
-            <div class="heroCard__tag">מותאם</div>
-            <div class="heroCard__text">הוראה מותאמת + משחקולוגיה חינוכית</div>
-          </div>
-          <div class="heroCard__note"><span aria-hidden="true">📍</span><span>מרכז הכרמל</span></div>
-        </aside>
+        </div>
       </div>
     </section>
 
-    <!-- VALUE -->
-    <section class="section section--alt" id="value">
+    <!-- HIGHLIGHTS -->
+    <section class="section" id="highlights">
       <div class="wrap">
-        <header class="head">
-          <h2 class="h2 reveal">מה מקבלים</h2>
-          <p class="sub reveal">פשוט, קצר, ומדויק.</p>
+        <header class="sectionHead">
+          <h2 class="h2 reveal">Get the highlights.</h2>
         </header>
 
-        <div class="grid3">
-          <article class="card reveal">
-            <h3>הבנה</h3>
-            <p>מסדרים בסיס עד שזה יושב.</p>
+        <div class="highlights" role="list" aria-label="הדגשים">
+          <article class="hlCard reveal" role="listitem">
+            <div class="hlTitle">פערים.</div>
+            <p class="hlBody">סוגרים חורים בבסיס — ואז מתקדמים.</p>
           </article>
-          <article class="card reveal">
-            <h3>ביטחון</h3>
-            <p>הצלחות קטנות שמתחברות.</p>
+
+          <article class="hlCard reveal" role="listitem">
+            <div class="hlTitle">שיטה.</div>
+            <p class="hlBody">איך ניגשים, איך בודקים, איך מצמצמים טעויות.</p>
           </article>
-          <article class="card reveal">
-            <h3>שיטה</h3>
-            <p>איך ניגשים ואיך בודקים.</p>
+
+          <article class="hlCard reveal" role="listitem">
+            <div class="hlTitle">ביטחון.</div>
+            <p class="hlBody">הצלחות קטנות, עקביות — שמייצרות מסוגלות.</p>
           </article>
+
+          <article class="hlCard reveal" role="listitem">
+            <div class="hlTitle">מיקום.</div>
+            <p class="hlBody">אצלי בבית — מרכז הכרמל.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSER LOOK -->
+    <section class="section section--alt" id="closer">
+      <div class="wrap closer">
+        <header class="sectionHead">
+          <h2 class="h2 reveal">Take a closer look.</h2>
+          <p class="sub reveal">בחרי נושא — ותראי את ההיגיון מאחוריו.</p>
+        </header>
+
+        <div class="tabs reveal" role="tablist" aria-label="בחירה">
+          <button class="tab isActive" role="tab" aria-selected="true" data-mode="gaps">פערים</button>
+          <button class="tab" role="tab" aria-selected="false" data-mode="method">שיטה</button>
+          <button class="tab" role="tab" aria-selected="false" data-mode="confidence">ביטחון</button>
+        </div>
+
+        <div class="closerGrid">
+          <div class="closerVisual reveal" aria-hidden="true">
+            <div class="poster" id="poster"></div>
+          </div>
+
+          <div class="closerCopy">
+            <h3 class="h3 reveal" id="closerTitle">פערים.</h3>
+            <p class="copy reveal" id="closerText">מוצאים את החוליה החסרה — ומחזקים אותה מהר.</p>
+            <ul class="miniList reveal" id="closerList">
+              <li>מיפוי קצר</li>
+              <li>בניית בסיס</li>
+              <li>תנועה קדימה</li>
+            </ul>
+            <a class="btn btn--primary reveal" href="#contact">לתיאום</a>
+          </div>
         </div>
       </div>
     </section>
@@ -116,21 +167,23 @@
     <section class="section" id="about">
       <div class="wrap about">
         <div class="about__copy">
-          <h2 class="h2 reveal">עליי</h2>
-          <p class="p reveal">
-            מורה למתמטיקה <strong>13 שנה</strong> • ניסיון יסודי+חטיבה • <strong>M.Ed</strong> • הוראה מותאמת.
+          <h2 class="h2 reveal">עליי.</h2>
+          <p class="aboutLine reveal">
+            מורה למתמטיקה <strong>13 שנה</strong> • ניסיון יסודי+חטיבה • <strong>M.Ed</strong> • הוראה מותאמת • משחקולוגיה חינוכית.
           </p>
-          <div class="chips reveal" aria-label="תגיות">
-            <span class="chip">הוראה מותאמת</span>
-            <span class="chip">משחקולוגיה</span>
-            <span class="chip">מיפוי פערים</span>
-          </div>
         </div>
 
-        <aside class="panel reveal" aria-label="CTA קצר">
-          <h3>רוצה להתחיל?</h3>
-          <p class="panel__p">ממלאים 3 פרטים וזה פותח WhatsApp.</p>
-          <a class="btn btn--primary btn--full" href="#contact">לתיאום</a>
+        <aside class="aboutCard reveal">
+          <div class="aboutStat">
+            <div class="aboutStat__n">13</div>
+            <div class="aboutStat__t">שנות ניסיון</div>
+          </div>
+          <div class="aboutStat">
+            <div class="aboutStat__n">M.Ed</div>
+            <div class="aboutStat__t">הוראת מתמטיקה</div>
+          </div>
+          <div class="aboutCard__line"></div>
+          <a class="btn btn--primary btn--full" href="#contact">לתיאום ב‑WhatsApp</a>
         </aside>
       </div>
     </section>
@@ -140,40 +193,36 @@
       <div class="wrap">
         <div class="contact">
           <div class="contact__copy">
-            <h2 class="h2 reveal">תיאום ב‑WhatsApp</h2>
-            <p class="sub reveal">שם פרטי • שם משפחה • שם הילד/ה.</p>
-            <div class="callout reveal" role="note">
-              <span class="callout__dot" aria-hidden="true"></span>
-              <p>הטופס פותח שיחת WhatsApp חדשה. לא נשמר מידע באתר.</p>
-            </div>
+            <h2 class="h2 reveal">לתיאום.</h2>
+            <p class="sub reveal">3 פרטים. שיחה נפתחת ב‑WhatsApp.</p>
           </div>
 
           <form class="form reveal" id="whatsForm" novalidate>
             <label class="field">
-              <span>שם פרטי <span class="req">*</span></span>
+              <span>שם פרטי</span>
               <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
             </label>
 
             <label class="field">
-              <span>שם משפחה <span class="req">*</span></span>
+              <span>שם משפחה</span>
               <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
             </label>
 
             <label class="field">
-              <span>שם הילד/ה <span class="req">*</span></span>
+              <span>שם הילד/ה</span>
               <input id="childName" name="childName" type="text" required />
             </label>
 
             <p class="error" id="errorText" role="alert" aria-live="polite"></p>
 
-            <button class="btn btn--primary btn--full" type="submit">שליחה</button>
+            <button class="btn btn--primary btn--full" type="submit">פתיחת WhatsApp</button>
 
-            <p class="micro micro--muted">פתיחת WhatsApp בלבד.</p>
+            <p class="fine fine--muted">לא נשמר מידע באתר.</p>
           </form>
         </div>
 
         <footer class="footer">
-          <p>© <span id="year"></span> מתמטיקה בביטחון • חיפה</p>
+          <p>© <span id="year"></span> מתמטיקה בביטחון</p>
         </footer>
       </div>
     </section>
