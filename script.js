@@ -20,7 +20,7 @@
     });
   }
 
-  // Reveal on scroll
+  // Reveal
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!prefersReduced){
     const els = document.querySelectorAll(".reveal");
@@ -31,30 +31,27 @@
           io.unobserve(e.target);
         }
       }
-    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.14, rootMargin: "0px 0px -10% 0px" });
     els.forEach(el => io.observe(el));
   } else {
     document.querySelectorAll(".reveal").forEach(el => el.classList.add("in-view"));
   }
 
-  // Floating button scroll to contact
+  // FAB -> contact
   const waFab = document.getElementById("waFab");
   if (waFab){
     waFab.addEventListener("click", () => {
-      const el = document.querySelector("#contact");
-      if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
-      setTimeout(() => $("firstName")?.focus(), 350);
+      document.querySelector("#contact")?.scrollIntoView({behavior:"smooth", block:"start"});
+      setTimeout(() => $("firstName")?.focus(), 300);
     });
   }
 
-  // Footer year
-  const year = $("year");
-  if (year) year.textContent = String(new Date().getFullYear());
+  // Year
+  $("year")?.append(String(new Date().getFullYear()));
 
   // WhatsApp form
   const form = $("whatsForm");
   const errorText = $("errorText");
-
   const clean = (s) => (s || "").toString().trim().replace(/\s+/g, " ");
   const setError = (msg) => { if (errorText) errorText.textContent = msg || ""; };
 
@@ -62,7 +59,7 @@
     "היי, הגעתי מהאתר ‘מתמטיקה בביטחון’.",
     `שמי: ${firstName} ${lastName}`,
     `שם הילד/ה: ${childName}`,
-    "אשמח לשמוע פרטים ולתאם שיעור."
+    "אפשר לתאם שיעור?"
   ].join("\n");
 
   const openWhatsApp = (text) => {
@@ -81,14 +78,14 @@
       const childName = clean($("childName")?.value);
 
       if (!firstName || !lastName || !childName){
-        setError("נא למלא שם פרטי, שם משפחה ושם הילד/ה (שדות חובה).");
+        setError("נא למלא 3 שדות.");
         return;
       }
 
       try{
         openWhatsApp(buildMessage(firstName, lastName, childName));
       } catch (err){
-        setError(err?.message || "אירעה שגיאה. נסו שוב.");
+        setError(err?.message || "אירעה שגיאה.");
       }
     });
   }
