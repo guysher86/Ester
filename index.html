@@ -1,376 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אסתר - מתמטיקה בביטחון</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // פלטת פסטל רכה ומחבקת
-                        pastel: {
-                            bg: '#FEFDF9',       /* רקע ראשי - שמנת מאוד בהירה */
-                            blue: '#D6E4F0',     /* תכלת מרגיע */
-                            peach: '#FDE2E4',    /* ורוד-אפרסק חמים */
-                            lilac: '#E2D1F9',    /* סגול לילך עדין */
-                            mint: '#D1E8E2',     /* מנטה רעננה */
-                            coral: '#F7A072',    /* צבע כפתור (קורל) - בולט אך רך */
-                            coral_hover: '#ED9160',
-                        },
-                        // טקסט כהה וקריא (אפור-כחול עמוק, לא שחור מוחלט)
-                        slate: {
-                            600: '#475569',
-                            800: '#1E293B',
-                            900: '#0F172A',
-                        }
-                    },
-                    fontFamily: {
-                        heebo: ['Heebo', 'sans-serif'],
-                        assistant: ['Assistant', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>מתמטיקה בביטחון | השיטה להצלחה</title>
 
-    <style>
-        body { font-family: 'Assistant', sans-serif; overflow-x: hidden; background-color: #FEFDF9; }
-        h1, h2, h3, nav { font-family: 'Heebo', sans-serif; }
-        
-        /* רקע פסטלי זורם ונעים */
-        .pastel-gradient-bg {
-            background: linear-gradient(120deg, #FEFDF9 0%, #FFF5F5 50%, #F0F7FF 100%);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
-        /* כרטיסיות זכוכית נקיות */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 20px rgba(100, 116, 139, 0.05); /* צל עדין מאוד */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+  <style>
+    :root{
+      --bg: #fbf5f5;          /* soft blush, like your screenshot */
+      --surface: #ffffff;
+      --ink: #111827;
+      --muted: rgba(17,24,39,.68);
+      --hair: rgba(17,24,39,.10);
+      --shadow: 0 18px 55px rgba(17,24,39,.10);
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 116, 139, 0.1);
-            background: rgba(255, 255, 255, 0.9);
-        }
+      --radius-xl: 26px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
 
-        /* --- Animations --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
+      --max: 1080px;
+    }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"Heebo", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
 
-        .step-icon-anim {
-            transform: scale(0);
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .step-icon-anim.active {
-            transform: scale(1);
-        }
+    a{ color: inherit; text-decoration: none; }
+    .wrap{
+      width: min(var(--max), calc(100% - 44px));
+      margin: 0 auto;
+      padding: 22px 0 90px;
+    }
 
-        .delay-100 { transition-delay: 0.1s; }
-        .delay-200 { transition-delay: 0.2s; }
-        .delay-300 { transition-delay: 0.3s; }
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px 0;
+    }
+    .brand{
+      font-weight: 900;
+      letter-spacing: -.2px;
+      font-size: 18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--hair);
+      box-shadow: 0 12px 40px rgba(17,24,39,.08);
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 55px rgba(17,24,39,.12);
+    }
 
-        /* רקע Hero - גרדיאנט פסטלי גדול */
-        .hero-section {
-            background: radial-gradient(circle at top right, #E2D1F9 0%, #D6E4F0 40%, #FEFDF9 80%);
-            position: relative;
-            overflow: hidden;
-        }
+    /* Hero */
+    .hero{
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.60);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 38px 22px;
+      margin-top: 10px;
+    }
+    .kicker{
+      margin:0 0 10px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: .2px;
+      text-align:center;
+    }
+    h1{
+      margin:0 0 14px;
+      text-align:center;
+      font-size: clamp(38px, 4.8vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -1px;
+    }
+    .lead{
+      margin: 0 auto 18px;
+      max-width: 72ch;
+      text-align:center;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .hero-cta{
+      display:flex;
+      justify-content:center;
+      margin-top: 8px;
+    }
 
-        /* צורות צפות ברקע - בצבעים עדינים */
-        .floating-shape {
-            position: absolute;
-            opacity: 0.3; 
-            animation: float 20s infinite ease-in-out;
-            pointer-events: none;
-            color: #fff;
-            mix-blend-mode: overlay;
-        }
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
+    /* Sections */
+    section{
+      padding: 56px 0;
+    }
+    .section-title{
+      text-align:center;
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: -.6px;
+    }
+    .section-sub{
+      text-align:center;
+      margin: 0 auto 26px;
+      max-width: 78ch;
+      color: var(--muted);
+      font-size: 18px;
+    }
 
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            left: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+    /* Feature grid */
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .card{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.75);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 55px rgba(17,24,39,.08);
+      padding: 20px 20px;
+      min-height: 150px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 22px;
+      letter-spacing: -.2px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+    }
 
-        /* Video Container Styles */
-        .tech-visual-container {
-            position: relative;
-            overflow: hidden;
-            background: #D6E4F0;
-        }
-    </style>
+    /* Steps */
+    .steps{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+    .step{
+      position: relative;
+      overflow:hidden;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.75);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 55px rgba(17,24,39,.08);
+      padding: 22px 22px;
+      min-height: 170px;
+    }
+    .step::before{
+      content: attr(data-num);
+      position:absolute;
+      inset: auto auto 12px 14px; /* bottom-left in RTL still reads nicely */
+      font-size: 96px;
+      font-weight: 900;
+      line-height: 1;
+      opacity: .08;
+      pointer-events:none;
+    }
+    .step h3{
+      margin:0 0 8px;
+      font-size: 28px;
+      letter-spacing: -.3px;
+    }
+    .step p{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* Chips */
+    .chips{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+    .chip{
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--hair);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-weight: 800;
+      color: rgba(17,24,39,.82);
+    }
+
+    /* FAQ */
+    .faq{
+      width: min(860px, 100%);
+      margin: 0 auto;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      text-align:right;
+    }
+    details{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.75);
+      border-radius: var(--radius-md);
+      box-shadow: 0 18px 55px rgba(17,24,39,.06);
+      padding: 14px 16px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      list-style:none;
+      outline:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    /* Final CTA */
+    .final{
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.60);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 34px 22px;
+      text-align:center;
+    }
+    .final p{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    footer{
+      text-align:center;
+      margin-top: 18px;
+      color: rgba(17,24,39,.55);
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .steps{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 720px){
+      .grid-2{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .section-title{ font-size: 30px; }
+      .hero{ padding: 32px 18px; }
+    }
+  </style>
 </head>
-<body class="pastel-gradient-bg text-slate-800">
 
-    <nav class="glass-card fixed w-full z-50 shadow-sm bg-opacity-90">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2 text-xl font-black text-slate-800 tracking-tight">
-                <i class="fas fa-square-root-alt text-purple-400"></i>
-                <span>אסתר<span class="font-light text-slate-600"> | מתמטיקה בביטחון</span></span>
-            </div>
-            <a href="https://wa.me/972546969509" class="hidden md:flex items-center gap-2 bg-pastel-blue px-5 py-2 rounded-full text-slate-800 font-bold hover:bg-blue-200 transition">
-                <i class="fab fa-whatsapp text-lg text-green-600"></i> דברי איתי
-            </a>
-        </div>
-    </nav>
+<body>
+  <div class="wrap">
 
-    <header class="hero-section min-h-[85vh] flex flex-col items-center justify-center text-center px-4 relative pt-20">
-        <i class="fas fa-cube text-9xl floating-shape text-pastel-lilac" style="top: 10%; left: 10%; animation-duration: 25s;"></i>
-        <i class="fas fa-heart text-8xl floating-shape text-pastel-peach" style="bottom: 15%; right: 10%; animation-duration: 30s; animation-delay: -5s;"></i>
-        <i class="fas fa-star text-7xl floating-shape text-pastel-blue" style="top: 20%; right: 20%; animation-duration: 22s; animation-delay: -10s;"></i>
-
-        <div class="max-w-4xl relative z-10 flex flex-col items-center reveal active">
-            <div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur-md px-6 py-2 rounded-full text-sm font-bold mb-8 border border-white text-slate-600 shadow-sm">
-                <i class="fas fa-check-circle text-pastel-coral"></i> שיטה עוטפת ומקדמת להצלחה
-            </div>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900 drop-shadow-sm">
-                למצות את הפוטנציאל.<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">בביטחון מלא.</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-10 font-medium text-slate-600 max-w-2xl leading-relaxed">
-                להפוך קושי להצלחה בעזרת הוראה פרטנית מתקדמת המשלבת אסטרטגיות למידה, יצירת רצף הצלחות ובניית יסודות חזקים.
-            </p>
-            <div class="flex justify-center">
-                <a href="https://wa.me/972546969509" target="_blank" class="bg-pastel-coral hover:bg-pastel-coral_hover text-white text-lg px-10 py-4 rounded-full font-bold shadow-lg shadow-orange-100 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
-                    <i class="fab fa-whatsapp text-2xl"></i> תיאום שיעור בוואטסאפ
-                </a>
-            </div>
-        </div>
+    <header>
+      <div class="brand">מתמטיקה בביטחון</div>
+      <a class="btn" href="https://wa.me/YOUR_NUMBER_HERE" target="_blank" rel="noopener">דברי איתי</a>
     </header>
 
-    <section class="py-20 px-4 max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-6">
-            <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center reveal delay-100 border-t-4 border-t-pastel-blue">
-                <div class="w-16 h-16 bg-pastel-blue/50 text-slate-700 rounded-full flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-layer-group"></i>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-slate-800">יסודי וחטיבה</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">ליווי מדויק לכיתות א'–ט', כולל הכנה אסטרטגית למבחני מיון לכיתה ז'.</p>
-            </div>
-            
-            <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center reveal delay-200 border-t-4 border-t-pastel-peach">
-                <div class="w-16 h-16 bg-pastel-peach text-slate-700 rounded-full flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-arrow-up-right-dots"></i>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-slate-800">בניית בסיס חזק</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">איתור נקודות הקושי וחיזוק היסודות כדי לאפשר התקדמות חלקה בחומר השוטף.</p>
-            </div>
+    <div class="hero">
+      <p class="kicker">שיטה מוכחת להצלחה במתמטיקה</p>
 
-            <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center reveal delay-300 border-t-4 border-t-pastel-lilac">
-                <div class="w-16 h-16 bg-pastel-lilac text-slate-700 rounded-full flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-slate-800">רצף הצלחות</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">תרגול מובנה שנועד לייצר הצלחות קטנות ועקביות, כך שהתלמיד רואה תוצאות.</p>
-            </div>
+      <h1>למצות את הפוטנציאל.<br>בביטחון מלא.</h1>
 
-            <div class="glass-card p-8 rounded-3xl text-center flex flex-col items-center reveal delay-300 border-t-4 border-t-pastel-mint">
-                <div class="w-16 h-16 bg-pastel-mint text-slate-700 rounded-full flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-pen-ruler"></i>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-slate-800">אסטרטגיות למידה</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">לא רק "לפתור את התרגיל", אלא ללמוד איך ללמוד, איך לגשת לבעיה ואיך לנהל זמן.</p>
-            </div>
+      <p class="lead">
+        להפוך קושי להצלחה בעזרת הוראה פרטנית מתקדמת המשלבת אסטרטגיות למידה, יצירת רצף הצלחות ובניית יסודות חזקים להמשך הדרך.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/YOUR_NUMBER_HERE" target="_blank" rel="noopener">תיאום שיעור בוואטסאפ</a>
+      </div>
+    </div>
+
+    <section aria-label="יתרונות">
+      <div class="grid-2">
+        <div class="card">
+          <h3>יסודי וחטיבה</h3>
+          <p>ליווי מדויק לכיתות א'–ט', כולל הכנה אסטרטגית למבחני מיון לכיתה ז'.</p>
         </div>
+
+        <div class="card">
+          <h3>בניית בסיס חזק</h3>
+          <p>איתור נקודות הקושי וחיזוק היסודות כדי לאפשר התקדמות חלקה בחומר השוטף.</p>
+        </div>
+
+        <div class="card">
+          <h3>רצף הצלחות</h3>
+          <p>תרגול מובנה שנועד לייצר הצלחות קטנות ועקביות, כך שהתלמיד רואה תוצאות ומבין שהוא שולט בחומר.</p>
+        </div>
+
+        <div class="card">
+          <h3>אסטרטגיות למידה</h3>
+          <p>לא רק "לפתור את התרגיל", אלא ללמוד איך ללמוד, איך לגשת לבעיה ואיך לנהל זמן.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="py-20 px-4 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center mb-16 relative z-10 reveal">
-            <h2 class="text-4xl font-black text-slate-800 mb-4">איך השיטה עובדת?</h2>
-            <p class="text-slate-600 text-lg max-w-2xl mx-auto">תהליך למידה המבוסס על הבנה עמוקה ועצמאות.</p>
+    <section id="how">
+      <h2 class="section-title">איך השיטה עובדת?</h2>
+      <p class="section-sub">תהליך למידה המבוסס על הבנה עמוקה ועצמאות, ללא תלות נצחית במורה.</p>
+
+      <div class="steps">
+        <div class="step" data-num="01">
+          <h3>איתור נקודת השורש</h3>
+          <p>בשיעורים הראשונים, בשילוב עם משחקולוגיה חינוכית, אני עוברת עם התלמיד מחומר בסיסי של כיתה א עד למציאת הנקודה שבה הוא הפסיק להבין את הנושא בכיתה שמשם שורש הבעיה.</p>
         </div>
-        
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 relative z-10">
-            <div class="relative text-center md:text-right group reveal delay-100">
-                <div class="step-icon-anim text-8xl font-black text-pastel-peach/50 absolute -top-8 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 z-0">01</div>
-                <div class="relative z-10 bg-white/80 p-8 rounded-3xl border border-white shadow-sm hover:shadow-md transition">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">בניית ארגז כלים</h3>
-                    <p class="text-slate-600 leading-relaxed">שימוש בטכניקות הוראה מתקדמות (ויזואליזציה, פירוק לגורמים) כדי שהחומר באמת יוטמע ולא רק ישונון.</p>
-                </div>
-            </div>
-            <div class="relative text-center md:text-right group reveal delay-200">
-                <div class="step-icon-anim text-8xl font-black text-pastel-blue/50 absolute -top-8 right-1/2 translate-x-1/2 md:right-0 md:translate-x-0 z-0">02</div>
-                <div class="relative z-10 bg-white/80 p-8 rounded-3xl border border-white shadow-sm hover:shadow-md transition">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">עקביות ועצמאות</h3>
-                    <p class="text-slate-600 leading-relaxed">היעד הוא עצמאות. משימות קצרות וממוקדות שמייצרות חוויות הצלחה ובונות אחריות אישית ללמידה.</p>
-                </div>
-            </div>
+
+        <div class="step" data-num="02">
+          <h3>בניית ארגז כלים</h3>
+          <p>שימוש בטכניקות הוראה מתקדמות (ויזואליזציה, פירוק לגורמים) כדי שהחומר באמת יוטמע ולא רק ישונון.</p>
         </div>
+
+        <div class="step" data-num="03">
+          <h3>עקביות ועצמאות</h3>
+          <p>היעד הוא עצמאות. משימות קצרות וממוקדות שמייצרות חוויות הצלחה ובונות אחריות אישית ללמידה.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="py-20 px-4 max-w-6xl mx-auto reveal">
-        <div class="glass-card rounded-[40px] overflow-hidden shadow-xl flex flex-col md:flex-row items-stretch border-0">
-            
-            <div class="w-full md:w-1/2 tech-visual-container min-h-[450px] relative">
-                <video 
-                    src="math_confidence_header.mp4" 
-                    autoplay 
-                    loop 
-                    muted 
-                    playsinline 
-                    class="absolute inset-0 w-full h-full object-cover"
-                ></video>
-                <div class="absolute inset-0 bg-blue-100/20 mix-blend-multiply"></div>
-            </div>
+    <section id="knowledge">
+      <h2 class="section-title">הידע שמאחורי ההצלחה</h2>
+      <p class="section-sub">כשיש לך ניסיון של 13 שנים, תואר שני בהוראת המתמטיקה והסמכה להוראה מותאמת, את לא מלמדת "טריקים". את מלמדת חשיבה.</p>
 
-            <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-white/60">
-                <h2 class="text-3xl font-bold text-slate-800 mb-6">הידע שמאחורי ההצלחה</h2>
-                <p class="text-lg text-slate-600 mb-8 leading-relaxed font-medium">
-                    כשיש לך ניסיון של 13 שנים, תואר שני בהוראת המתמטיקה והסמכה להוראה מותאמת, את לא מלמדת "טריקים". את מלמדת חשיבה.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-pastel-lilac shadow-sm transition hover:shadow-md">
-                        <div class="w-10 h-10 bg-pastel-lilac rounded-full flex items-center justify-center text-purple-600">
-                            <i class="fas fa-certificate text-xl"></i>
-                        </div>
-                        <span class="font-bold text-slate-700">M.Ed בהוראת המתמטיקה</span>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-pastel-peach shadow-sm transition hover:shadow-md">
-                        <div class="w-10 h-10 bg-pastel-peach rounded-full flex items-center justify-center text-red-500">
-                             <i class="fas fa-user-graduate text-xl"></i>
-                        </div>
-                        <span class="font-bold text-slate-700">מומחית להוראה מותאמת</span>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-pastel-blue shadow-sm transition hover:shadow-md">
-                        <div class="w-10 h-10 bg-pastel-blue rounded-full flex items-center justify-center text-blue-600">
-                            <i class="fas fa-gamepad text-xl"></i>
-                        </div>
-                        <span class="font-bold text-slate-700">שילוב משחקולוגיה בלמידה</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="chips">
+        <span class="chip">M.Ed בהוראת המתמטיקה</span>
+        <span class="chip">מומחית להוראה מותאמת</span>
+        <span class="chip">שילוב משחקולוגיה בלמידה</span>
+      </div>
     </section>
 
-    <section class="py-20 px-4 max-w-4xl mx-auto reveal">
-        <div class="glass-card p-10 rounded-[40px] text-center shadow-lg relative overflow-hidden">
-             <div class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-pastel-lilac via-pastel-peach to-pastel-blue"></div>
+    <section>
+      <h2 class="section-title">פרטים נוספים</h2>
 
-            <h2 class="text-2xl font-bold text-slate-800 mb-8">פרטים נוספים</h2>
-            
-            <div class="flex justify-center items-center">
-                <div class="flex flex-col items-center group">
-                    <div class="w-24 h-24 bg-pastel-mint/50 rounded-full flex items-center justify-center text-teal-600 mb-4 shadow-sm transition group-hover:scale-110 group-hover:bg-pastel-mint">
-                        <i class="fas fa-map-pin text-3xl"></i>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-800 mb-1">מרכז הכרמל, חיפה</h3>
-                    <p class="text-slate-500">שיעורים פרטיים באווירה שקטה</p>
-                </div>
-            </div>
+      <div class="grid-2" style="margin-top:16px; grid-template-columns: 1fr;">
+        <div class="card" style="min-height:auto;">
+          <h3>מרכז הכרמל, חיפה</h3>
+          <p>שיעורים פרטיים באווירה שקטה</p>
         </div>
+      </div>
     </section>
 
-    <section class="py-16 px-4 max-w-3xl mx-auto reveal">
-        <h2 class="text-3xl font-bold text-center text-slate-800 mb-10">שאלות נפוצות</h2>
-        <div class="space-y-4">
-            <details class="glass-card rounded-2xl p-5 cursor-pointer group transition-all duration-300 open:bg-white">
-                <summary class="font-bold flex justify-between items-center list-none text-slate-800 text-lg">
-                    <span>האם יש הכנה למבחני כניסה לכיתה ז'?</span>
-                    <span class="text-purple-400 transition-transform group-open:rotate-180 bg-pastel-lilac w-8 h-8 flex items-center justify-center rounded-full"><i class="fas fa-chevron-down"></i></span>
-                </summary>
-                <p class="mt-4 text-slate-600 leading-relaxed pl-4 border-r-4 border-pastel-lilac mr-2 bg-purple-50 p-4 rounded-lg">
-                    כן. התהליך כולל חיזוק נושאים מתמטיים מתקדמים ובניית ביטחון ומיומנויות מבחן ספציפיות למיונים.
-                </p>
-            </details>
-            <details class="glass-card rounded-2xl p-5 cursor-pointer group transition-all duration-300 open:bg-white">
-                <summary class="font-bold flex justify-between items-center list-none text-slate-800 text-lg">
-                    <span>האם זה מתאים לילדים עם לקויות למידה?</span>
-                    <span class="text-blue-400 transition-transform group-open:rotate-180 bg-pastel-blue w-8 h-8 flex items-center justify-center rounded-full"><i class="fas fa-chevron-down"></i></span>
-                </summary>
-                <p class="mt-4 text-slate-600 leading-relaxed pl-4 border-r-4 border-pastel-blue mr-2 bg-blue-50 p-4 rounded-lg">
-                    בהחלט. בזכות ההכשרה בהוראה מותאמת, אני יודעת לזהות את הדרך בה הילד קולט מידע ולהתאים את ההסבר אליו.
-                </p>
-            </details>
-        </div>
+    <section id="faq">
+      <h2 class="section-title">שאלות נפוצות</h2>
+
+      <div class="faq">
+        <details>
+          <summary>האם יש הכנה למבחני כניסה לכיתה ז'?</summary>
+          <p>כן. התהליך כולל חיזוק נושאים מתמטיים מתקדמים ובניית ביטחון ומיומנויות מבחן ספציפיות למיונים.</p>
+        </details>
+
+        <details>
+          <summary>האם זה מתאים לילדים עם לקויות למידה?</summary>
+          <p>בהחלט. בזכות ההכשרה בהוראה מותאמת, אני יודעת לזהות את הדרך בה הילד קולט מידע ולהתאים את ההסבר אליו.</p>
+        </details>
+      </div>
     </section>
 
-    <section class="py-24 px-4 text-center relative overflow-hidden reveal">
-        <div class="max-w-3xl mx-auto relative z-10">
-            <h2 class="text-4xl font-black text-slate-800 mb-6">השינוי מתחיל בהודעה</h2>
-            <p class="text-xl text-slate-600 mb-12 font-medium">בואו נבדוק התאמה ונבנה תוכנית עבודה להצלחה.</p>
-            
-            <a href="https://wa.me/972546969509" target="_blank" class="group inline-flex items-center justify-center gap-4 bg-pastel-coral hover:bg-pastel-coral_hover text-white font-bold text-xl py-5 px-12 rounded-full shadow-2xl shadow-orange-100 transition transform hover:scale-105 hover:-translate-y-1">
-                <span>שליחת הודעה בוואטסאפ</span>
-                <i class="fab fa-whatsapp text-3xl transition group-hover:rotate-12"></i>
-            </a>
-        </div>
-        <i class="fas fa-comments text-9xl absolute bottom-10 right-10 opacity-10 text-pastel-lilac"></i>
+    <section>
+      <div class="final">
+        <h2 class="section-title" style="padding:0; margin:0 0 10px;">השינוי מתחיל בהודעה</h2>
+        <p>בואו נבדוק התאמה ונבנה תוכנית עבודה להצלחה.</p>
+        <a class="btn" href="https://wa.me/YOUR_NUMBER_HERE" target="_blank" rel="noopener">שליחת הודעה בוואטסאפ</a>
+
+        <footer>© 2024 מתמטיקה בביטחון | כל הזכויות שמורות.</footer>
+      </div>
     </section>
 
-    <footer class="glass-card border-t border-white py-8 text-center text-slate-400 text-sm font-medium">
-        <p>&copy; 2024 מתמטיקה בביטחון | כל הזכויות שמורות.</p>
-    </footer>
-
-    <a href="https://wa.me/972546969509" target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script>
-        // Scroll Reveal Logic
-        document.addEventListener('DOMContentLoaded', function() {
-            const reveals = document.querySelectorAll('.reveal');
-            const stepIcons = document.querySelectorAll('.step-icon-anim');
-
-            const revealOnScroll = function() {
-                const windowHeight = window.innerHeight;
-                const elementVisible = 100;
-
-                reveals.forEach((reveal) => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveal.classList.add('active');
-                    }
-                });
-
-                stepIcons.forEach((icon) => {
-                    const iconTop = icon.getBoundingClientRect().top;
-                    if (iconTop < windowHeight - elementVisible) {
-                        icon.classList.add('active');
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll();
-        });
-    </script>
+  </div>
 </body>
 </html>
