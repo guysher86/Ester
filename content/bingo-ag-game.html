@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>בינגו חיבור וחיסור עד 20 | מתמטיקה בצעד בטוח</title>
+<meta content="דף משחק להדפסה + הוראות קצרות להורים. 10 דקות ביום לבניית ביטחון בחשבון (כיתות א–ג)." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&amp;family=Assistant:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    :root{
+      --bg:#FEFDF9;
+      --card: rgba(255,255,255,0.82);
+      --shadow: rgba(15,23,42,0.06);
+      --border: rgba(226,209,249,0.45);
+    }
+    body{
+      font-family: 'Assistant', sans-serif;
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+    .pastel-gradient-bg{
+      background:
+        radial-gradient(circle at 20% 30%, rgba(226, 209, 249, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 80% 20%, rgba(214, 228, 240, 0.55) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(253, 226, 228, 0.50) 0%, transparent 55%),
+        var(--bg);
+    }
+    .glass-card{
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 40px var(--shadow);
+    }
+    .reveal{ transform: translateY(40px); opacity: 0; transition: 0.8s all ease; }
+    .reveal.active{ transform: translateY(0); opacity: 1; }
+
+    .whatsapp-float{
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+  </style>
+</head>
+<body class="pastel-gradient-bg text-slate-800">
+<script>
+    // Defaults (page stays functional even if CMS fetch fails)
+    let PDF_URL = "assets/bingo-a-g.pdf";
+    let WHATSAPP_URL = "https://wa.me/972546969509";
+  </script>
+<nav class="glass-card fixed w-full z-50 shadow-sm bg-opacity-90">
+<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-2 text-xl font-black text-slate-800 tracking-tight">
+<i class="fas fa-shoe-prints text-purple-400"></i>
+<span>מתמטיקה בצעד בטוח<span class="font-light text-slate-600"> | מהבסיס ועד להצלחה</span></span>
+</div>
+<div class="hidden md:flex items-center gap-3">
+<a class="flex items-center gap-2 bg-pastel-blue px-5 py-2 rounded-full text-slate-800 font-bold hover:bg-blue-200 transition" href="#" id="downloadNav">
+<i class="fas fa-file-arrow-down text-lg text-slate-700"></i> הורדת ה-PDF
+        </a>
+<a class="flex items-center gap-2 bg-white/60 px-5 py-2 rounded-full text-slate-800 font-bold hover:bg-white transition border border-white" href="#" id="waNav">
+<i class="fab fa-whatsapp text-lg text-green-600"></i> דברי איתי
+        </a>
+</div>
+</div>
+</nav>
+<header class="min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-24">
+<div class="max-w-4xl flex flex-col items-center reveal active">
+<div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur-md px-6 py-2 rounded-full text-sm font-bold mb-8 border border-white text-slate-600 shadow-sm">
+<i class="fas fa-print text-purple-500"></i> דף להדפסה | 10 דקות ביום
+      </div>
+<h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-slate-900 drop-shadow-sm">
+<span id="cms-bingo-hero-title">בינגו חיבור וחיסור עד 20</span><br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400" id="cms-bingo-hero-emphasis">בדרך נעימה ובטוחה.</span>
+</h1>
+<p class="text-xl md:text-2xl mb-10 font-medium text-slate-600 max-w-2xl leading-relaxed" id="cms-bingo-hero-subtitle">
+        מחליפים מאבקי שיעורי בית בשגרה קצרה: ההורה מקריא תרגיל, הילד מחפש תוצאה — ובונה דיוק וביטחון.
+      </p>
+<div class="flex flex-col sm:flex-row justify-center gap-3">
+<a class="bg-pastel-coral hover:bg-pastel-coral_hover text-white text-lg px-10 py-4 rounded-full font-bold shadow-lg shadow-orange-100 transition transform hover:-translate-y-1 flex items-center justify-center gap-3" href="#" id="downloadHero">
+<i class="fas fa-file-arrow-down text-2xl"></i> להורדת ה-PDF
+        </a>
+<a class="bg-white/70 hover:bg-white text-slate-800 text-lg px-10 py-4 rounded-full font-bold shadow-lg shadow-slate-100 transition flex items-center justify-center gap-3 border border-white" href="#" id="waHero">
+<i class="fab fa-whatsapp text-2xl text-green-600"></i> <span id="cms-bingo-cta-text">קבלת הדף בוואטסאפ</span>
+</a>
+</div>
+<p class="mt-6 text-slate-400 text-sm font-medium">
+        טיפ: הדפיסו פעמיים — פעם אחת לתרגול, ופעם אחת ל"אתגר של השבוע".
+      </p>
+</div>
+</header>
+<section class="py-20 px-4">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-14 reveal">
+<div class="inline-flex items-center gap-2 bg-white/80 px-6 py-2 rounded-full text-sm font-bold mb-4 border border-white shadow-sm">
+<i class="fas fa-circle-info text-blue-600"></i> איך משחקים?
+        </div>
+<h2 class="text-4xl md:text-5xl font-black mb-4 text-slate-900">הוראות קצרות להורים</h2>
+<p class="text-xl text-slate-600 max-w-3xl mx-auto">
+          המשחק בנוי כדי להוריד לחץ ולהעלות הצלחות. 10 דקות ביום מספיקות כדי לראות שינוי.
+        </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="glass-card rounded-3xl p-8 reveal">
+<div class="w-14 h-14 bg-pastel-blue rounded-2xl flex items-center justify-center mb-5">
+<i class="fas fa-bullseye text-xl text-blue-700"></i>
+</div>
+<h3 class="text-2xl font-black mb-3 text-slate-900">מטרה</h3>
+<p class="text-slate-600 text-lg leading-relaxed">
+            לחזק חיבור וחיסור עד 20, להגביר דיוק, ולבנות ביטחון באמצעות רצף הצלחות קצר ומהנה.
+          </p>
+</div>
+<div class="glass-card rounded-3xl p-8 reveal" style="transition-delay: 0.2s;">
+<div class="w-14 h-14 bg-pastel-lilac rounded-2xl flex items-center justify-center mb-5">
+<i class="fas fa-dice text-xl text-purple-700"></i>
+</div>
+<h3 class="text-2xl font-black mb-3 text-slate-900">מה עושים?</h3>
+<p class="text-slate-600 text-lg leading-relaxed">
+            ההורה מקריא תרגיל (למשל 8+7), הילד מוצא את התוצאה בלוח הבינגו ומסמן. ממשיכים עד שיש "בינגו".
+          </p>
+</div>
+<div class="glass-card rounded-3xl p-8 reveal" style="transition-delay: 0.4s;">
+<div class="w-14 h-14 bg-pastel-mint rounded-2xl flex items-center justify-center mb-5">
+<i class="fas fa-clock text-xl text-emerald-700"></i>
+</div>
+<h3 class="text-2xl font-black mb-3 text-slate-900">כמה זמן?</h3>
+<p class="text-slate-600 text-lg leading-relaxed">
+            8–12 דקות. עצרו כשהילד עדיין מצליח — זה בונה מוטיבציה. עדיף מעט כל יום מאשר הרבה פעם בשבוע.
+          </p>
+</div>
+</div>
+<div class="mt-12 glass-card rounded-3xl p-8 reveal">
+<div class="grid md:grid-cols-2 gap-8 items-start">
+<div>
+<h3 class="text-2xl font-black mb-4 text-slate-900">כללי זהב</h3>
+<ul class="space-y-3 text-slate-600 text-lg leading-relaxed">
+<li><i class="fas fa-check text-emerald-600 ml-2"></i> מציינים הצלחה (“יופי! מצאת מהר!”) יותר מאשר מתקנים.</li>
+<li><i class="fas fa-check text-emerald-600 ml-2"></i> אם יש טעות — חוזרים לתרגיל דומה, לא “מענישים” בתרגול ארוך.</li>
+<li><i class="fas fa-check text-emerald-600 ml-2"></i> אחרי 3 הצלחות ברצף, מעלים רמה בעדינות.</li>
+</ul>
+</div>
+<div>
+<h3 class="text-2xl font-black mb-4 text-slate-900">רמות קושי</h3>
+<ul class="space-y-3 text-slate-600 text-lg leading-relaxed">
+<li><span class="font-bold text-slate-800">קל:</span> רק עד 10</li>
+<li><span class="font-bold text-slate-800">בינוני:</span> עד 20</li>
+<li><span class="font-bold text-slate-800">מאתגר:</span> אחרי כל תשובה מוסיפים +2 / −2 לתרגיל הבא</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-12 flex flex-col sm:flex-row justify-center gap-3">
+<a class="group inline-flex items-center justify-center gap-3 bg-pastel-coral hover:bg-pastel-coral_hover text-white text-lg font-bold py-4 px-10 rounded-full shadow-lg shadow-orange-100 transition transform hover:scale-105 hover:-translate-y-1" href="#" id="downloadBottom">
+<span>להורדת ה-PDF</span>
+<i class="fas fa-file-arrow-down text-xl transition group-hover:rotate-6"></i>
+</a>
+<a class="group inline-flex items-center justify-center gap-3 bg-white/70 hover:bg-white text-slate-800 text-lg font-bold py-4 px-10 rounded-full shadow-sm transition border border-white" href="#" id="waBottom">
+<span id="cms-bingo-cta-text-bottom">לקבלת הדף בוואטסאפ</span>
+<i class="fab fa-whatsapp text-2xl text-green-600 transition group-hover:rotate-12"></i>
+</a>
+</div>
+<p class="mt-6 text-center text-slate-500 text-sm">
+        הערה: בוואטסאפ אפשר גם לשאול שאלות — אבל את האבחון עושים בשיעור הראשון.
+      </p>
+</div>
+</section>
+<footer class="glass-card border-t border-white py-8 text-center text-slate-400 text-sm font-medium">
+<p>© <span id="year"></span> מתמטיקה בצעד בטוח | מהבסיס ועד להצלחה | כל הזכויות שמורות.</p>
+</footer>
+<a class="whatsapp-float" href="#" id="waFloat" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+<script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function applyLinks(pdfUrl, whatsappUrl) {
+      ["downloadNav","downloadHero","downloadBottom"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && typeof pdfUrl === "string" && pdfUrl.length) el.href = pdfUrl;
+      });
+
+      ["waNav","waHero","waBottom","waFloat"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && typeof whatsappUrl === "string" && whatsappUrl.length) el.href = whatsappUrl;
+      });
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el && typeof value === "string") el.textContent = value;
+    }
+
+    function setMeta(title, description) {
+      if (typeof title === "string" && title.length) document.title = title;
+      if (typeof description === "string" && description.length) {
+        const meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute("content", description);
+      }
+    }
+
+    // Apply defaults first (keeps site working even if CMS fetch fails)
+    applyLinks(PDF_URL, WHATSAPP_URL);
+
+    // Pull CMS-managed content (if exists)
+    (async function () {
+      try {
+        const res = await fetch("/content/bingo-ag-game.json", { cache: "no-store" });
+        if (!res.ok) return;
+        const d = await res.json();
+
+        setMeta(d.pageTitle, d.metaDescription);
+        setText("cms-bingo-hero-title", d.heroTitle);
+        setText("cms-bingo-hero-subtitle", d.heroSubtitle);
+
+        // Optional fields if you decide to manage them
+        if (typeof d.heroEmphasis === "string") setText("cms-bingo-hero-emphasis", d.heroEmphasis);
+        if (typeof d.ctaText === "string") {
+          setText("cms-bingo-cta-text", d.ctaText);
+          setText("cms-bingo-cta-text-bottom", d.ctaText);
+        }
+
+        if (typeof d.pdfUrl === "string" && d.pdfUrl.length) PDF_URL = d.pdfUrl;
+        if (typeof d.whatsappUrl === "string" && d.whatsappUrl.length) WHATSAPP_URL = d.whatsappUrl;
+
+        applyLinks(PDF_URL, WHATSAPP_URL);
+      } catch (e) {
+        // silent fallback
+      }
+    })();
+
+    // Reveal on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const revealOnScroll = function() {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 100;
+
+        reveals.forEach((reveal) => {
+          const elementTop = reveal.getBoundingClientRect().top;
+          if (elementTop < windowHeight - elementVisible) {
+            reveal.classList.add('active');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
+</body>
+</html>
