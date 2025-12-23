@@ -1,0 +1,56 @@
+---
+layout: base.njk
+title: משחקי חשבון להדפסה | מתמטיקה בצעד בטוח
+description: משחקים קצרים וממוקדים לחיזוק החשבון והביטחון העצמי.
+---
+<header class="min-h-[50vh] flex flex-col items-center justify-center text-center px-4 pt-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-pastel-blue/20 -z-10"></div>
+    <i class="fas fa-puzzle-piece text-9xl absolute -right-10 top-20 text-pastel-blue/40 opacity-50 -rotate-12"></i>
+    
+    <h1 class="text-5xl md:text-7xl font-black mb-6 text-slate-900">ללמוד דרך משחק.</h1>
+    <p class="text-xl text-slate-600 max-w-2xl">במקום "שיעורי בית", יוצרים זמן איכות קצר של 10 דקות שמחזק מיומנויות ובונה חווית הצלחה.</p>
+</header>
+
+<section class="py-16 px-4 max-w-6xl mx-auto space-y-20">
+    
+    <div class="relative">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 rounded-full bg-pastel-peach flex items-center justify-center text-xl font-black text-slate-700">א-ג</div>
+            <h2 class="text-3xl font-black text-slate-800">ביסוס יסודות (כיתות א'–ג')</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for game in collections.games %}
+            {% if game.data.category == "כיתות א'-ג'" %}
+            <a href="{{ game.url }}" class="glass-card rounded-[32px] p-6 hover:shadow-xl transition group flex items-start gap-6 relative overflow-hidden border-2 border-transparent hover:border-pastel-blue">
+                <div class="w-16 h-16 rounded-2xl {{ game.data.color }} flex-shrink-0 flex items-center justify-center text-2xl text-slate-700">
+                    <i class="{{ game.data.image }}"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2 leading-tight">{{ game.data.title }}</h3>
+                    <p class="text-sm text-slate-600">{{ game.data.excerpt }}</p>
+                    <div class="mt-4 text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                        להורדה <i class="fas fa-download"></i>
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="opacity-50 grayscale select-none relative">
+        <div class="absolute inset-0 z-10 flex items-center justify-center">
+            <span class="bg-slate-800 text-white px-6 py-2 rounded-full font-bold text-sm">בקרוב...</span>
+        </div>
+        <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 rounded-full bg-pastel-mint flex items-center justify-center text-xl font-black text-slate-700">ד-ו</div>
+            <h2 class="text-3xl font-black text-slate-800">שברים ואחוזים (כיתות ד'–ו')</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass-card rounded-[32px] p-6 h-32"></div>
+            <div class="glass-card rounded-[32px] p-6 h-32"></div>
+        </div>
+    </div>
+
+</section>

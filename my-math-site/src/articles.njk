@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: מאמרים וכלים להורים | מתמטיקה בצעד בטוח
+description: ספריית הידע שלנו - מאמרים, טיפים והסברים להורים.
+---
+<header class="min-h-[50vh] flex flex-col items-center justify-center text-center px-4 pt-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-pastel-lilac/20 -z-10"></div>
+    <i class="fas fa-book-open text-9xl absolute -left-10 top-20 text-pastel-lilac/40 opacity-50 rotate-12"></i>
+    
+    <h1 class="text-5xl md:text-7xl font-black mb-6 text-slate-900">ידע זה ביטחון.</h1>
+    <p class="text-xl text-slate-600 max-w-2xl">מאמרים קצרים, פרקטיים וממוקדים שיעזרו לכם להבין את הקושי של הילד ולתת לו את המענה המדויק בבית.</p>
+</header>
+
+<section class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for post in collections.articles %}
+        <article class="glass-card rounded-[32px] overflow-hidden hover:shadow-xl transition group flex flex-col h-full">
+            <div class="h-48 {{ post.data.color }} flex items-center justify-center relative overflow-hidden">
+                <i class="{{ post.data.image }} text-8xl text-white/40 absolute transform group-hover:scale-110 transition duration-500"></i>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+                <h2 class="text-2xl font-black text-slate-800 mb-3 leading-tight group-hover:text-purple-600 transition">{{ post.data.title }}</h2>
+                <p class="text-slate-600 mb-6 flex-1">{{ post.data.excerpt }}</p>
+                <a href="{{ post.url }}" class="inline-flex items-center gap-2 font-bold text-slate-800 group-hover:gap-4 transition-all">
+                    קרא עוד <i class="fas fa-arrow-left text-pastel-coral"></i>
+                </a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/index.njk"
+        label: "Home Page"
+        name: "index"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Body Content", name: "body", widget: "markdown"}
+      - file: "src/hizuk-article.njk"
+        label: "Article: Hizuk"
+        name: "hizuk"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body Content", name: "body", widget: "markdown"}
