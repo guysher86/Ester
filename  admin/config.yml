@@ -20,3 +20,19 @@ collections:
           - { label: "כותרת מודגשת", name: "heroTitleEmphasis", widget: "string" }
           - { label: "תת-כותרת", name: "heroSubtitle", widget: "text" }
           - { label: "טקסט כפתור", name: "heroCtaText", widget: "string" }
+
+  - name: "bingo_ag_game"
+    label: "Bingo (א–ג)"
+    files:
+      - name: "bingo_ag_game"
+        label: "עמוד בינגו"
+        file: "content/bingo-ag-game.json"
+        format: "json"
+        fields:
+          - { label: "כותרת דף (Title)", name: "pageTitle", widget: "string" }
+          - { label: "תיאור מטא (Description)", name: "metaDescription", widget: "text" }
+          - { label: "כותרת ראשית", name: "heroTitle", widget: "string" }
+          - { label: "תת-כותרת", name: "heroSubtitle", widget: "text" }
+          - { label: "קישור ל-PDF (pdfUrl)", name: "pdfUrl", widget: "string" }
+          - { label: "טקסט כפתור", name: "ctaText", widget: "string" }
+          - { label: "WhatsApp URL", name: "whatsappUrl", widget: "string" }
