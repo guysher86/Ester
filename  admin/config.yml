@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "dummy"
+        label: "Dummy"
+        file: "admin/dummy.json"
+        format: "json"
+        fields:
+          - { label: "Ping", name: "ping", widget: "string" }
