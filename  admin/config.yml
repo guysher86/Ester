@@ -6,12 +6,17 @@ media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  - name: "settings"
-    label: "Settings"
+  - name: "home"
+    label: "Home"
     files:
-      - name: "dummy"
-        label: "Dummy"
-        file: "admin/dummy.json"
+      - name: "home"
+        label: "Hero"
+        file: "content/home.json"
         format: "json"
         fields:
-          - { label: "Ping", name: "ping", widget: "string" }
+          - { label: "WhatsApp URL", name: "whatsappUrl", widget: "string" }
+          - { label: "Badge (שורה קטנה מעל הכותרת)", name: "heroBadge", widget: "string" }
+          - { label: "כותרת שורה 1", name: "heroTitleLine1", widget: "string" }
+          - { label: "כותרת מודגשת", name: "heroTitleEmphasis", widget: "string" }
+          - { label: "תת-כותרת", name: "heroSubtitle", widget: "text" }
+          - { label: "טקסט כפתור", name: "heroCtaText", widget: "string" }
