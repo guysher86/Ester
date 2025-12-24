@@ -4,22 +4,65 @@ backend:
 
 media_folder: "src/assets/images"
 public_folder: "/assets/images"
+locale: "he"
 
 collections:
+  # --- עריכת דף הבית ---
   - name: "pages"
-    label: "Pages"
+    label: "דפים כלליים"
     files:
       - file: "src/index.njk"
-        label: "Home Page"
-        name: "index"
+        label: "דף הבית"
+        name: "home"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "Hero Title", name: "heroTitle", widget: "string"}
-          - {label: "Body Content", name: "body", widget: "markdown"}
-      - file: "src/hizuk-article.njk"
-        label: "Article: Hizuk"
-        name: "hizuk"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body Content", name: "body", widget: "markdown"}
+          - {label: "כותרת דפדפן (SEO)", name: "title", widget: "string"}
+          - {label: "כותרת ראשית (Hero)", name: "heroTitle", widget: "string"}
+          - {label: "כותרת משנה", name: "heroSubtitle", widget: "text"}
+          - {label: "טקסט כפתור ראשי", name: "heroCtaText", widget: "string"}
+          - {label: "טקסט כפתור משני", name: "heroSecText", widget: "string"}
+          
+          - label: "כרטיסיות השיטה (3 כרטיסים)"
+            name: "features"
+            widget: "list"
+            fields:
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "טקסט", name: "text", widget: "text"}
+              - {label: "אייקון (FontAwesome)", name: "icon", widget: "string"}
+              - {label: "צבע (bg-pastel-name)", name: "color", widget: "string"}
+
+          - label: "שאלות נפוצות"
+            name: "faq"
+            widget: "list"
+            fields:
+              - {label: "שאלה", name: "question", widget: "string"}
+              - {label: "תשובה", name: "answer", widget: "text"}
+              - {label: "צבע רקע", name: "color", widget: "select", options: ["bg-purple-50", "bg-blue-50", "bg-orange-50"]}
+
+  # --- ניהול משחקים ---
+  - name: "games"
+    label: "משחקים להדפסה"
+    folder: "src/content/games"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "שם המשחק", name: "title", widget: "string"}
+      - {label: "תיאור קצר", name: "excerpt", widget: "text"}
+      - {label: "קטגוריה", name: "category", widget: "select", options: ["כיתות א'-ג'", "כיתות ד'-ו'", "הכנה לחטיבה"]}
+      - {label: "קובץ PDF להורדה", name: "pdfFile", widget: "file", required: false}
+      - {label: "אייקון ראשי", name: "image", widget: "string", default: "fas fa-puzzle-piece"}
+      - {label: "צבע רקע", name: "color", widget: "select", options: ["bg-pastel-blue", "bg-pastel-peach", "bg-pastel-lilac", "bg-pastel-mint"]}
+      - {label: "תוכן הדף (הוראות)", name: "body", widget: "markdown"}
+
+  # --- ניהול מאמרים ---
+  - name: "articles"
+    label: "מאמרים להורים"
+    folder: "src/content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "כותרת המאמר", name: "title", widget: "string"}
+      - {label: "תאריך", name: "date", widget: "datetime"}
+      - {label: "תקציר (מופיע בכרטיסייה)", name: "excerpt", widget: "text"}
+      - {label: "אייקון", name: "image", widget: "string", default: "fas fa-star"}
+      - {label: "צבע כרטיסייה", name: "color", widget: "select", options: ["bg-pastel-lilac", "bg-pastel-blue", "bg-pastel-peach"]}
+      - {label: "תוכן המאמר", name: "body", widget: "markdown"}
